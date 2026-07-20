@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consola de Aula Sincrónica - Realidad Socioeconómica y Constitucional</title>
-    <!-- Tailwind CSS para diseño responsivo y de alto impacto visual -->
+    <title>Consola de Aula Sincrónica - Contexto Regional y Global</title>
+    <!-- Tailwind CSS para diseño responsivo y premium de la Universidad Católica de Cuenca -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -63,11 +63,11 @@
                 </div>
                 <div>
                     <h1 class="text-base font-black text-ucacue-red tracking-tight leading-none">Universidad Católica de Cuenca</h1>
-                    <p class="text-xs text-gray-500 font-bold mt-1">Realidad Socioeconómica • Aula Invertida Sincrónica</p>
+                    <p class="text-xs text-gray-500 font-bold mt-1">Contexto Regional y Global • Clase 2 Bloque 2</p>
                 </div>
             </div>
             
-            <!-- SELECTOR DE VISTAS (Pestañas unificadas para evitar URLs múltiples) -->
+            <!-- SELECTOR DE VISTAS (Evita URLs múltiples) -->
             <div class="flex bg-gray-150 p-1 rounded-2xl border border-gray-200 bg-gray-100">
                 <button id="btn-mode-teacher" onclick="switchMode('teacher')" class="px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all duration-200 bg-white text-ucacue-red shadow-sm border border-gray-200/50">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
@@ -81,7 +81,7 @@
         </div>
     </header>
 
-    <!-- NOTIFICACIONES TOAST (Reemplazo de alert() del navegador para evitar bloqueos) -->
+    <!-- NOTIFICACIONES TOAST (Reemplazo de alert() para evitar bloqueos) -->
     <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-12 opacity-0 transition-all duration-300 pointer-events-none">
         <div class="bg-gray-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-gray-800">
             <span id="toast-icon" class="text-ucacue-gold text-lg">💡</span>
@@ -98,16 +98,16 @@
             <!-- PANEL SUPERIOR: CONTROL SINCRE DE AULA Y SIMULADOR -->
             <div class="bg-gradient-to-r from-ucacue-red to-red-950 rounded-3xl p-6 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6">
                 <div class="space-y-2 text-center lg:text-left">
-                    <span class="bg-red-800/80 text-ucacue-gold text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-widest border border-red-700/50">Recurso 1: Proyección en Aula</span>
-                    <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Rompehielos Sincrónico</h2>
-                    <p class="text-red-100 text-sm max-w-xl">Mide el nivel cognitivo y la lectura previa de tus estudiantes sobre las doctrinas económicas del Ecuador.</p>
+                    <span class="bg-red-800/80 text-ucacue-gold text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-widest border border-red-700/50">RECURSO 1: DIAGNÓSTICO EN VIVO</span>
+                    <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Clase 2: América Latina, Dependencia e Integración</h2>
+                    <p class="text-red-100 text-sm max-w-xl">Auditoría de Deuda Externa, Tratados de Inversión y el impacto socio-jurídico del neocolonialismo en América Latina.</p>
                 </div>
                 
                 <!-- Panel de Simulación Sincrónica (Docente) -->
                 <div class="bg-black/30 p-4 rounded-2xl border border-white/10 backdrop-blur-sm flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
                     <div class="text-center sm:text-left">
-                        <p class="text-xs font-bold text-ucacue-gold uppercase tracking-wider">Flujo de Aula Activo</p>
-                        <p class="text-[11px] text-red-200">Simula participaciones de estudiantes en vivo</p>
+                        <p class="text-xs font-bold text-ucacue-gold uppercase tracking-wider">Simulación de Participación</p>
+                        <p class="text-[11px] text-red-200">Recrea un aula sincrónica de 50 alumnos</p>
                     </div>
                     <div class="flex gap-2 w-full sm:w-auto">
                         <button id="btn-sim-start" onclick="toggleSimulation()" class="flex-grow sm:flex-none px-4 py-2.5 bg-ucacue-gold hover:bg-ucacue-goldDark text-gray-900 font-black text-xs rounded-xl transition-all duration-150 shadow-md flex items-center justify-center gap-2">
@@ -126,7 +126,7 @@
                     <span class="text-xl">⚙️</span>
                     <div>
                         <h3 class="text-sm font-black text-gray-800 uppercase tracking-wide">Dirección URL del Aula (Sincronización de QR)</h3>
-                        <p class="text-[11px] text-gray-500 mt-0.5">Por defecto el sistema apunta a tu dirección de GitHub Pages. Si deseas cambiar el destino del QR en vivo, edítalo aquí.</p>
+                        <p class="text-[11px] text-gray-500 mt-0.5">El sistema está sincronizado de manera predeterminada con tu GitHub Pages. Modifica este enlace si deseas usar un servidor de red alternativo.</p>
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row gap-3">
@@ -140,18 +140,17 @@
             <!-- GRID PRINCIPAL DE LA PROYECCIÓN -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
-                <!-- QR de Acceso y Enlace Sincro (4/12 cols) -->
+                <!-- QR de Acceso y Enlace Sincro -->
                 <div class="lg:col-span-4 space-y-6">
                     <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center flex flex-col items-center justify-center space-y-6">
                         <div class="space-y-1">
                             <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest block">Acceso Estudiantes</span>
                             <h3 class="text-lg font-black text-gray-800">Participación en Vivo</h3>
-                            <p class="text-xs text-gray-500">Escanea el código QR con tu móvil para unirte al debate de la clase.</p>
+                            <p class="text-xs text-gray-500">Escanea el código QR para unirte al foro interactivo.</p>
                         </div>
 
                         <!-- CÓDIGO QR GENERADO DINÁMICAMENTE -->
                         <div class="p-4 bg-gray-50 rounded-3xl border border-gray-200/60 shadow-inner relative">
-                            <!-- Imagen que carga el código QR dinámicamente apuntando a tu URL real -->
                             <img id="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://carloseduardochica-art.github.io/clase-contexto/&color=1E2022" alt="Código QR de la Clase" class="w-44 h-44 mx-auto rounded-xl object-contain bg-white p-1 border border-gray-150 transition-transform duration-300" onerror="handleQrError()">
                             <span class="absolute top-2 right-2 flex h-2 w-2">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -178,26 +177,26 @@
                     </div>
                 </div>
 
-                <!-- Gráficos de Resultados y Nube (8/12 cols) -->
+                <!-- Gráficos de Resultados y Nube -->
                 <div class="lg:col-span-8 space-y-6">
                     
                     <!-- PANEL DE SONDEO DIAGNÓSTICO EN TIEMPO REAL -->
                     <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-6">
                         <div class="border-b border-gray-100 pb-4">
                             <span class="bg-amber-100 text-amber-800 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">Sondeo de Entrada</span>
-                            <h3 class="text-xl font-black text-gray-800 mt-2">Gasto de Inversión vs. Compromisos de Deuda</h3>
-                            <p class="text-xs text-gray-500 leading-relaxed">¿Debe la política de gasto social y redistribución condicionar o subordinar los compromisos de deuda externa bajo el marco constitucional del Buen Vivir (Art. 275)?</p>
+                            <h3 class="text-xl font-black text-gray-800 mt-2">Soberanía de Desarrollo vs. Compromisos de Deuda</h3>
+                            <p class="text-xs text-gray-500 leading-relaxed">¿Debe el Ecuador ampararse en las cláusulas de soberanía (Art. 289 y 290) para supeditar prioritariamente el pago de deuda externa a la inversión social y al régimen del Buen Vivir?</p>
                         </div>
 
                         <!-- Estructura de Barras Dinámicas -->
                         <div class="space-y-4">
                             
-                            <!-- Opción A: Gasto Social -->
+                            <!-- Opción A -->
                             <div class="space-y-2">
                                 <div class="flex justify-between items-center text-xs font-bold text-gray-700">
                                     <span class="flex items-center gap-2">
                                         <span class="w-3 h-3 rounded-full bg-ucacue-red"></span>
-                                        Opción A: Gasto social como derecho humano fundamental y prioritario (Montecristi 2008)
+                                        Opción A: Sí. La Constitución del 2008 prioriza la soberanía, la inversión en salud/educación y prohíbe deudas ilegítimas.
                                     </span>
                                     <span id="bar-a-label" class="text-ucacue-red font-black text-sm">0% (0 votos)</span>
                                 </div>
@@ -206,12 +205,12 @@
                                 </div>
                             </div>
 
-                            <!-- Opción B: Deuda -->
+                            <!-- Opción B -->
                             <div class="space-y-2">
                                 <div class="flex justify-between items-center text-xs font-bold text-gray-700">
                                     <span class="flex items-center gap-2">
                                         <span class="w-3 h-3 rounded-full bg-gray-400"></span>
-                                        Opción B: Pago de deuda como prioridad fiscal para sostener la credibilidad financiera de mercado
+                                        Opción B: No. El pago riguroso de obligaciones sostiene la credibilidad del mercado financiero y el acceso al crédito.
                                     </span>
                                     <span id="bar-b-label" class="text-gray-600 font-black text-sm">0% (0 votos)</span>
                                 </div>
@@ -228,7 +227,7 @@
                         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-gray-150 pb-4 gap-2">
                             <div>
                                 <span class="bg-slate-100 text-slate-800 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">Asociación de Conceptos</span>
-                                <h3 class="text-lg font-black text-gray-800 mt-1">Nube en Vivo: ¿Qué define al Buen Vivir o Sumak Kawsay?</h3>
+                                <h3 class="text-lg font-black text-gray-800 mt-1">Nube en Vivo: ¿Qué conceptos jurídicos definen la dependencia o integración regional?</h3>
                             </div>
                             <span class="text-xs text-gray-400 font-bold bg-gray-50 px-3 py-1 rounded-full border border-gray-200" id="text-word-count">Conceptos: 0</span>
                         </div>
@@ -279,12 +278,12 @@
             <!-- TAB 1: SONDEO DIAGNÓSTICO -->
             <div id="tab-content-poll" class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
-                <!-- Formulario de Envío (7/12 cols) -->
+                <!-- Formulario de Envío -->
                 <div class="lg:col-span-7 space-y-6">
                     <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6">
                         <div class="border-b border-gray-100 pb-4">
                             <h3 class="text-lg font-black text-gray-800 leading-tight">1. Envía tu Voto al Panel General</h3>
-                            <p class="text-xs text-gray-500 mt-1">Selecciona una de las posturas de desarrollo del Ecuador y presiona enviar.</p>
+                            <p class="text-xs text-gray-500 mt-1">Selecciona una postura sobre el pago de deudas de América Latina frente a la inversión soberana.</p>
                         </div>
 
                         <!-- Opciones de Votación -->
@@ -296,8 +295,8 @@
                                         <div class="w-2.5 h-2.5 rounded-full bg-ucacue-red opacity-0 peer-checked:opacity-100 transition"></div>
                                     </div>
                                     <div>
-                                        <span class="block text-xs font-bold text-gray-800 uppercase tracking-wider mb-1">Postura A (Constitucionalista)</span>
-                                        <p class="text-xs text-gray-600 leading-relaxed">Priorizar la inversión social en infraestructura para garantizar el buen vivir, la salud y la redistribución (Régimen de Desarrollo - Art. 275).</p>
+                                        <span class="block text-xs font-bold text-gray-800 uppercase tracking-wider mb-1">Postura A (Constitucionalista / Derechos)</span>
+                                        <p class="text-xs text-gray-600 leading-relaxed">Priorizar los derechos humanos y del Buen Vivir sobre las imposiciones financieras externas de pago prioritario (Art. 290 de la CRE).</p>
                                     </div>
                                 </div>
                             </label>
@@ -309,8 +308,8 @@
                                         <div class="w-2.5 h-2.5 rounded-full bg-slate-800 opacity-0 peer-checked:opacity-100 transition"></div>
                                     </div>
                                     <div>
-                                        <span class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">Postura B (Ajuste y Sostenibilidad Financiera)</span>
-                                        <p class="text-xs text-gray-600 leading-relaxed">Priorizar el pago de deudas de financiamiento externo para sostener el acceso al crédito e inserción en la economía de mercado global.</p>
+                                        <span class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">Postura B (Cumplimiento Comercial y de Mercado)</span>
+                                        <p class="text-xs text-gray-600 leading-relaxed">Priorizar el pago ininterrumpido de las obligaciones crediticias para asegurar credibilidad, atracción de capital y solidez fiscal.</p>
                                     </div>
                                 </div>
                             </label>
@@ -325,7 +324,7 @@
                     <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6">
                         <div class="border-b border-gray-100 pb-4">
                             <h3 class="text-lg font-black text-gray-800 leading-tight">2. Envía tu Concepto para la Nube de Palabras</h3>
-                            <p class="text-xs text-gray-500 mt-1">Escribe una palabra o concepto jurídico clave (ej: dignidad, soberanía, redistribución) para alimentar la nube en pantalla central.</p>
+                            <p class="text-xs text-gray-500 mt-1">Escribe una palabra clave (ej: colonialismo, integración, soberanía, CIADI) para alimentar la nube en pantalla central.</p>
                         </div>
 
                         <div class="space-y-4">
@@ -339,29 +338,29 @@
                     </div>
                 </div>
 
-                <!-- Glosario de Apoyo (5/12 cols) -->
+                <!-- Glosario de Apoyo -->
                 <div class="lg:col-span-5 space-y-6">
                     <div class="bg-[#1E2022] text-white p-6 sm:p-8 rounded-3xl space-y-6 shadow-lg">
                         <div class="flex items-center gap-3">
                             <span class="text-3xl">📘</span>
                             <div>
                                 <h4 class="font-black text-sm uppercase tracking-wider text-ucacue-gold">Insumos para Argumentación</h4>
-                                <p class="text-[11px] text-gray-400">Contexto y Doctrina Constitucional</p>
+                                <p class="text-[11px] text-gray-400">Dependencia e Integración Regional</p>
                             </div>
                         </div>
 
                         <div class="space-y-4 text-xs">
                             <div class="border-l-2 border-ucacue-gold pl-3 space-y-1">
-                                <h5 class="font-bold text-gray-200 uppercase">Sustitución de Importaciones</h5>
-                                <p class="text-gray-300 leading-relaxed">Modelo industrialista (CEPAL) de fomento de manufactura interna para reducir dependencia de insumos extranjeros.</p>
+                                <h5 class="font-bold text-gray-200 uppercase">Teoría de la Dependencia</h5>
+                                <p class="text-gray-300 leading-relaxed">Explicación socioeconómica sobre el intercambio desigual asimétrico crónico entre países centrales (industriales) y periféricos (proveedores de materias primas).</p>
                             </div>
                             <div class="border-l-2 border-ucacue-gold pl-3 space-y-1">
-                                <h5 class="font-bold text-gray-200 uppercase">Neoliberalismo (Const. 1998)</h5>
-                                <p class="text-gray-300 leading-relaxed">Modelo económico clásico de privatizaciones, desregulación de mercado y limitación del Estado a un rol espectador.</p>
+                                <h5 class="font-bold text-gray-200 uppercase">Soberanía de Deuda (Art. 289-290 CRE)</h5>
+                                <p class="text-gray-300 leading-relaxed">Prohibición constitucional de endeudamiento público para financiar gasto corriente y obligación de priorizar el Buen Vivir frente a presiones crediticias.</p>
                             </div>
                             <div class="border-l-2 border-ucacue-gold pl-3 space-y-1">
-                                <h5 class="font-bold text-gray-200 uppercase">Buen Vivir / Posneoliberalismo</h5>
-                                <p class="text-gray-300 leading-relaxed">Paradigma neoconstitucional de la Constitución de 2008. Prioriza la inversión, redistribución y planificación estatal.</p>
+                                <h5 class="font-bold text-gray-200 uppercase">Prohibición de Cesión de Jurisdicción</h5>
+                                <p class="text-gray-300 leading-relaxed">Mandato constitucional del Art. 422 que impide firmar convenios donde se cedan litigios soberanos o contractuales a tribunales privados internacionales (como el CIADI).</p>
                             </div>
                         </div>
                     </div>
@@ -369,7 +368,7 @@
 
             </div>
 
-            <!-- TAB 2: TARJETAS DIDÁCTICAS (RECURSO 2 - REPASO INDIVIDUAL) -->
+            <!-- TAB 2: TARJETAS DIDÁCTICAS (RECURSO 2 - REPASO INDIVIDUAL DE CLASE 2) -->
             <div id="tab-content-cards" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
                 <!-- Tarjetas (7/12 cols) -->
@@ -398,7 +397,7 @@
                             <!-- CARA FRONTAL -->
                             <div class="absolute inset-0 backface-hidden bg-white p-6 sm:p-8 flex flex-col justify-between rounded-3xl">
                                 <div class="flex justify-between items-start">
-                                    <span class="bg-red-50 text-ucacue-red text-[10px] font-black px-2.5 py-1 rounded-full uppercase border border-red-100" id="card-front-category">Modelo Neoliberal vs. Posneoliberal</span>
+                                    <span class="bg-red-50 text-ucacue-red text-[10px] font-black px-2.5 py-1 rounded-full uppercase border border-red-100" id="card-front-category">Colonialismo & Dependencia</span>
                                     <div class="text-[10px] text-gray-400 font-bold uppercase flex items-center gap-1">
                                         <span>Girar</span>
                                         <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.228 5.682M21 12H3"></path></svg>
@@ -407,16 +406,16 @@
                                 
                                 <div class="my-auto space-y-4">
                                     <h3 class="text-lg sm:text-xl font-black text-gray-800 leading-tight" id="card-front-question">
-                                        ¿Qué diferencia sustancial existe en el rol del Estado entre el Neoliberalismo y el Posneoliberalismo?
+                                        ¿Cómo afecta la Teoría de la Dependencia a la soberanía económica de América Latina frente a la globalización?
                                     </h3>
                                     
                                     <!-- Pista Guiada -->
                                     <div class="bg-amber-50 rounded-2xl p-4 border border-amber-100 flex items-start gap-2.5">
                                         <span class="text-lg mt-0.5">💡</span>
                                         <div>
-                                            <h4 class="text-[10px] font-black text-amber-800 uppercase tracking-wider">Pista de Estudio</h4>
+                                            <h4 class="text-[10px] font-black text-amber-800 uppercase tracking-wider">Concepto Clave</h4>
                                             <p class="text-xs text-amber-900 mt-0.5" id="card-front-clue">
-                                                Compara el modelo de la Constitución de 1998 (mercado desregulado) con el de Montecristi 2008 (Estado garantista y planificador).
+                                                Piensa en el rol histórico de América Latina como exportadora neta de recursos de bajo valor frente al "centro" industrializado.
                                             </p>
                                         </div>
                                     </div>
@@ -424,29 +423,29 @@
                                 
                                 <div class="flex justify-between items-center text-[10px] text-gray-400 font-bold">
                                     <span>REALIDAD SOCIOECONÓMICA</span>
-                                    <span class="text-ucacue-red uppercase font-black">Toma apuntes 📝</span>
+                                    <span class="text-ucacue-red uppercase font-black">Apuntes Sincrónicos 📝</span>
                                 </div>
                             </div>
 
                             <!-- CARA TRASERA -->
                             <div class="absolute inset-0 backface-hidden rotate-y-180 bg-slate-900 text-white p-6 sm:p-8 flex flex-col justify-between rounded-3xl">
                                 <div class="flex justify-between items-center">
-                                    <span class="bg-slate-800 text-ucacue-gold text-[10px] font-black px-2.5 py-1 rounded-full uppercase border border-slate-700">Argumento Constitucional</span>
+                                    <span class="bg-slate-800 text-ucacue-gold text-[10px] font-black px-2.5 py-1 rounded-full uppercase border border-slate-700">Argumento Sociológico-Estructural</span>
                                     <span class="text-[10px] text-slate-400 font-bold uppercase">Volver</span>
                                 </div>
 
                                 <div class="my-auto space-y-4">
                                     <p class="text-xs sm:text-sm leading-relaxed text-slate-200" id="card-back-answer">
-                                        El modelo neoliberal (bajo la derogada Constitución de 1998) redujo la intervención estatal para priorizar las privatizaciones y la flexibilización. Por el contrario, el posneoliberalismo (Constitución de 2008 vigente) consagra al Estado como planificador activo de la economía para garantizar la redistribución y el régimen de desarrollo.
+                                        La Teoría de la Dependencia (CEPAL) expone que la inserción de América Latina en la globalización reproduce un intercambio desigual. La periferia transfiere valor al exportar materias primas baratas mientras importa tecnología costosa del centro, lo cual supedita las decisiones soberanas a organismos multilaterales y acreedores.
                                     </p>
                                     <div class="bg-slate-850 p-3 rounded-xl border border-slate-700/60 text-[11px] text-slate-300">
-                                        <span class="font-bold text-ucacue-gold">Anclaje Legal:</span> <span id="card-back-law">Régimen de Desarrollo - Arts. 275 y 276.</span>
+                                        <span class="font-bold text-ucacue-gold">Anclaje Constitucional:</span> <span id="card-back-law">Soberanía Alimentaria e Inserción Económica - Título VI</span>
                                     </div>
                                 </div>
 
                                 <div class="flex items-center justify-between text-[10px] text-slate-400 font-bold">
-                                    <span>FACULTAD DE DERECHO</span>
-                                    <span class="bg-green-500/15 text-green-400 px-2 py-0.5 rounded border border-green-500/20 font-black">Contenido Validado</span>
+                                    <span>carloseduardochica-art.github.io</span>
+                                    <span class="bg-green-500/15 text-green-400 px-2 py-0.5 rounded border border-green-500/20 font-black">Contenido Sincronizado</span>
                                 </div>
                             </div>
 
@@ -464,7 +463,7 @@
                     </div>
                 </div>
 
-                <!-- Progreso Individual (5/12 cols) -->
+                <!-- Progreso Individual -->
                 <div class="lg:col-span-5 space-y-6">
                     <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-6">
                         <div class="border-b border-gray-100 pb-4">
@@ -482,7 +481,7 @@
                         </div>
 
                         <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 text-xs text-gray-600 leading-relaxed">
-                            Asegúrate de repasar y dominar las 4 tarjetas didácticas antes de realizar la actividad práctica de litigio sobre políticas públicas en el Ecuador.
+                            Repasa las 4 tarjetas didácticas de apoyo sobre el contexto regional e internacional antes de tu debate sincrónico o la redacción del ensayo práctico de la unidad.
                         </div>
                     </div>
                 </div>
@@ -507,35 +506,35 @@
 
     <!-- LOGICA DE CONTROL DE LA APLICACIÓN -->
     <script>
-        // CONFIGURACIÓN DE LAS TARJETAS DE ESTUDIO (RECURSO 2)
+        // CONFIGURACIÓN DE LAS TARJETAS DE ESTUDIO DE CLASE 2
         const flashcardsData = [
             {
-                category: "Modelo Neoliberal vs. Posneoliberal",
-                question: "¿Qué diferencia sustancial existe en el rol del Estado entre el Neoliberalismo y el Posneoliberalismo?",
-                clue: "Asocia la Constitución de 1998 (mercado desregulado) con la de Montecristi 2008 (Estado regulador e inversor).",
-                answer: "El Neoliberalismo (impulsado en la Constitución de 1998, ya derogada) redujo la intervención del Estado limitándolo a la desregulación, privatización y flexibilización financiera. El Posneoliberalismo (Eje de la Constitución de 2008 vigente) sitúa al Estado como planificador activo de la economía nacional, garantizando la redistribución y el régimen de desarrollo.",
-                law: "Régimen de Desarrollo - Arts. 275 y 276 (CRE)."
+                category: "Colonialismo & Dependencia",
+                question: "¿Cómo afecta la Teoría de la Dependencia a la soberanía económica de América Latina frente a la globalización?",
+                clue: "Asocia el intercambio desigual (exportación de materias primas e importación de manufacturas) de Prebisch.",
+                answer: "La Teoría de la Dependencia expone que América Latina se inserta en la globalización en una condición de periferia exportadora de bajo valor frente a centros industriales. Esto provoca intercambio desigual, transferencia neta de recursos y dependencia fiscal, lo cual limita la soberanía política de los Estados.",
+                law: "Régimen de Desarrollo de Soberanía Económica - Art. 284 CRE."
             },
             {
-                category: "Buen Vivir (Sumak Kawsay)",
-                question: "¿Cómo define la Constitución de 2008 al Sumak Kawsay / Buen Vivir?",
-                clue: "Evita definirlo como simple crecimiento materialista; asócialo al bien común y la relación armónica.",
-                answer: "No es una utopía poética, sino el marco rector constitucional del régimen de desarrollo. El Art. 275 de la CRE lo consagra como el conjunto dinámico de sistemas económicos, socio-culturales y ambientales que aseguran la realización del bien común, la paz, la interculturalidad y la relación armónica con la naturaleza.",
-                law: "Título VI, Capítulo Primero del Régimen de Desarrollo, Art. 275 (CRE)."
+                category: "Integración Regional",
+                question: "¿Qué principios rigen la Integración Regional y las Relaciones Internacionales de Montecristi (Art. 416)?",
+                clue: "Busca la defensa de la soberanía, paz, autodeterminación de los pueblos e integración regional.",
+                answer: "El Art. 416 de la Constitución consagra que el Ecuador busca la integración prioritaria de América Latina y el Caribe, el rechazo a toda forma de neocolonialismo o hegemonía extranjera, la paz y la solución jurídica internacional de controversias.",
+                law: "Principio de Relaciones Internacionales - Art. 416 CRE."
             },
             {
-                category: "Políticas Públicas e Inversión",
-                question: "¿Qué función cumple la Inversión Pública en el marco constitucional ecuatoriano?",
-                clue: "Vincula la inversión pública con el financiamiento de infraestructura básica para la dignidad humana.",
-                answer: "La inversión pública no es un gasto gubernamental discrecional, sino un instrumento obligatorio de redistribución de riqueza que genera 'ahorro social'. Su objetivo primordial es consolidar infraestructura de salud, educación, vivienda y seguridad social, reduciendo la brecha estructural de desigualdad.",
-                law: "Políticas Sociales e Inclusión, Arts. 340 y ss. (CRE)."
+                category: "Crisis de Deuda Pública",
+                question: "¿Cómo limita y regula constitucionalmente la Carta de 2008 el endeudamiento y pago de deuda (Art. 289-290)?",
+                clue: "Revisa la prohibición absoluta de destinar créditos al gasto corriente y la obligación de auditar.",
+                answer: "Los Arts. 289 y 290 de la CRE prohíben contraer deuda pública para financiar gasto corriente estatal (pago de salarios), obligan a someter las deudas a auditorías de legitimidad e imponen que el servicio de la deuda no afecte los derechos constitucionales de salud, educación y Buen Vivir.",
+                law: "Garantías y Planificación de Deuda - Arts. 289 y 290 CRE."
             },
             {
-                category: "Constitución de 1998 vs. 2008 (Recordatorio Normativo)",
-                question: "¿Qué ocurrió con la Constitución de 1998 y la de 2008?",
-                clue: "Analiza la Disposición Derogatoria Única que determinó el Pleno de Montecristi.",
-                answer: "La Constitución de 1998 (de corte neoliberal) fue derogada íntegra y formalmente por la Constitución de 2008, que introdujo el paradigma garantista del Sumak Kawsay. Todo litigio y argumento sobre derechos constitucionales en el Ecuador actual debe sustentarse únicamente en la Carta Magna vigente del 2008.",
-                law: "Disposición Derogatoria Única de la Constitución del 2008."
+                category: "Límites en Tratados Internacionales",
+                question: "¿Por qué el Artículo 422 de la Constitución de 2008 prohíbe ceder soberanía a tribunales de arbitraje privado?",
+                clue: "Analiza el rol de organismos como el CIADI de defensa corporativa frente a los derechos soberanos.",
+                answer: "El Art. 422 de la CRE prohíbe celebrar tratados donde el Ecuador ceda su jurisdicción a tribunales de arbitraje privado o instancias internacionales en conflictos comerciales o de inversión, buscando evitar que los intereses de transnacionales vulneren los derechos constitucionales.",
+                law: "Prohibición de Cesión de Jurisdicción - Art. 422 CRE."
             }
         ];
 
@@ -545,7 +544,7 @@
         let currentCardIndex = 0;
         let isCardFlipped = false;
         let masteredCards = new Set();
-        // Definición de tu URL en GitHub Pages de forma predeterminada
+        // Sincronizado automáticamente a tu URL real de GitHub Pages
         let classUrl = "https://carloseduardochica-art.github.io/clase-contexto/";
 
         // Base de Datos en Memoria
@@ -777,19 +776,19 @@
             });
         }
 
-        // CARGAR DATOS INICIALES DEMOSTRATIVOS
+        // CARGAR DATOS INICIALES DEMOSTRATIVOS (CLASE 2)
         function loadMockInitialData() {
-            syncPollData.votesA = 14;
-            syncPollData.votesB = 6;
+            syncPollData.votesA = 15;
+            syncPollData.votesB = 5;
             syncPollData.totalVotes = 20;
 
             const initialWords = {
-                "SUMAK KAWSAY": 4,
-                "DIGNIDAD": 3,
-                "ARMONIA": 2,
-                "SOBERANIA": 2,
-                "REDISTRIBUCION": 1,
-                "EMPLEO": 1
+                "Soberanía": 4,
+                "Dependencia": 3,
+                "CIADI": 2,
+                "Colonialismo": 2,
+                "Integración": 1,
+                "Art. 422": 1
             };
 
             syncPollData.concepts = initialWords;
@@ -827,13 +826,13 @@
             const studentsNames = ["Estudiante Cuenca", "Estudiante Azogues", "Estudiante Cañar", "Estudiante Troncal", "Estudiante Gualaceo"];
             const randomName = studentsNames[Math.floor(Math.random() * studentsNames.length)];
             
-            const randomVote = Math.random() < 0.7 ? "A" : "B";
+            const randomVote = Math.random() < 0.75 ? "A" : "B";
             if (randomVote === 'A') syncPollData.votesA++;
             else syncPollData.votesB++;
             
             syncPollData.totalVotes++;
 
-            const studentConcepts = ["DERECHOS", "JUSTICIA", "IGUALDAD", "SUMAK KAWSAY", "SOBERANIA", "MATRIZ", "DIGNIDAD", "ARMONIA", "EMPLEO", "INVERSION", "BIEN COMUN", "MONTECRISTI", "CORTE", "REGIMEN"];
+            const studentConcepts = ["CIADI", "SOBERANIA", "DEPENDENCIA", "COLONIALISMO", "CONSTITUCION", "INTEGRACION", "MONTECRISTI", "ART. 422", "PREBISCH", "DEUDA", "CEPAL", "SAQUEO"];
             const randomConcept = studentConcepts[Math.floor(Math.random() * studentConcepts.length)];
 
             if (syncPollData.concepts[randomConcept]) {
