@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consola de Aula Sincrónica - Contexto Regional y Global</title>
+    <title>Consola de Aula Sincrónica - Realidad Socioeconómica y Constitucional</title>
     <!-- Tailwind CSS para diseño responsivo y de alto impacto visual -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -15,7 +15,6 @@
                             red: '#A21C26',
                             redDark: '#80141B',
                             grayDark: '#1E2022',
-                            grayMedium: '#2C2E30',
                             grayLight: '#F5F5F7',
                             gold: '#D4AF37',
                             goldDark: '#B3922E'
@@ -52,292 +51,243 @@
         }
     </style>
 </head>
-<body class="bg-[#F8F9FA] text-gray-900 font-sans min-h-screen flex flex-col lg:flex-row antialiased">
+<body class="bg-[#F8F9FA] text-gray-900 font-sans min-h-screen flex flex-col antialiased">
 
-    <!-- ================= PANEL LATERAL CLARO (SLIDER DE CONTROL OCULTABLE) ================= -->
-    <aside id="sidebar" class="w-full lg:w-72 bg-white text-slate-800 flex flex-col shrink-0 border-r border-slate-200 shadow-xl z-40 lg:sticky lg:top-0 lg:h-screen transition-all duration-300 ease-in-out overflow-y-auto">
-        
-        <!-- Identidad UCACUE -->
-        <div class="p-6 border-b border-slate-200 bg-slate-50/55 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-ucacue-red flex items-center justify-center text-white font-extrabold text-base border-2 border-ucacue-gold shadow-md shrink-0">
-                UC
-            </div>
-            <div>
-                <h1 class="text-sm font-black text-slate-800 tracking-tight leading-none">U. Católica de Cuenca</h1>
-                <p class="text-[10px] text-slate-500 font-bold mt-1">Facultad de Ciencias Sociales</p>
-            </div>
-        </div>
-
-        <!-- CONFIGURADOR DE ROL (¿Quién está usando la app?) -->
-        <div class="p-5 border-b border-slate-200 space-y-3 bg-white">
-            <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest block">1. Seleccionar tu Rol</span>
-            <div class="grid grid-cols-2 gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200">
-                <button id="btn-role-teacher" onclick="setRole('teacher')" class="py-2 text-[11px] font-black rounded-lg transition-all duration-200 bg-ucacue-red text-white shadow-md">
-                    Profesor
-                </button>
-                <button id="btn-role-student" onclick="setRole('student')" class="py-2 text-[11px] font-black rounded-lg transition-all duration-200 text-slate-500 hover:text-slate-800">
-                    Estudiante
-                </button>
-            </div>
-        </div>
-
-        <!-- SELECTOR DE RECURSOS PEDAGÓGICOS (Navegación Interactiva Clara) -->
-        <div class="p-5 flex-grow space-y-4 bg-white">
-            <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest block">2. Seleccionar Recurso</span>
-            
-            <nav class="space-y-2">
-                <!-- Botón Recurso 1 -->
-                <button id="nav-r1" onclick="setResource('r1')" class="w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 bg-slate-50 border-l-4 border-ucacue-red text-ucacue-red border border-slate-200 shadow-sm font-black">
-                    <span class="text-lg">📊</span>
-                    <div>
-                        <span class="block text-xs font-black tracking-tight leading-none">Recurso 1</span>
-                        <span class="text-[10px] text-slate-500 mt-1 block">Sondeo y Nube en Vivo</span>
-                    </div>
-                </button>
-
-                <!-- Botón Recurso 2 -->
-                <button id="nav-r2" onclick="setResource('r2')" class="w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 hover:bg-slate-50 border-l-4 border-transparent text-slate-500 hover:text-slate-800 border border-transparent">
-                    <span class="text-lg">📇</span>
-                    <div>
-                        <span class="block text-xs font-black tracking-tight leading-none">Recurso 2</span>
-                        <span class="text-[10px] text-slate-400 mt-1 block">Tarjetas de Aprendizaje</span>
-                    </div>
-                </button>
-            </nav>
-        </div>
-
-        <!-- Estado de Sincronización al pie -->
-        <div class="p-5 border-t border-slate-200 bg-slate-50 space-y-2 text-xs">
-            <div class="flex items-center justify-between text-[11px] font-bold text-slate-500">
-                <span class="flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Sincronizado
-                </span>
-                <span id="display-voters" class="bg-slate-200 px-2 py-0.5 rounded text-slate-800 font-mono text-[10px]">Alumnos: 20</span>
-            </div>
-            <p class="text-[9px] text-slate-400 leading-normal">Clase 2 Bloque 2: Contexto Regional y Global</p>
-        </div>
-    </aside>
-
-    <!-- ================= ÁREA DE CONTENIDO PRINCIPAL ================= -->
-    <div id="main-content" class="flex-grow flex flex-col min-h-screen overflow-y-auto transition-all duration-300">
-
-        <!-- CABECERA INSTITUCIONAL HORIZONTAL (Para proyección central) -->
-        <header class="bg-white border-b border-gray-200 px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0">
+    <!-- CABECERA INSTITUCIONAL UCACUE -->
+    <header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <!-- BOTÓN PARA CONTRAER/OCULTAR EL MENÚ LATERAL -->
-                <button onclick="toggleSidebar()" class="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 transition border border-slate-200 rounded-xl flex items-center gap-2 shadow-sm font-bold text-xs" title="Ocultar o Mostrar Menú">
-                    <span id="sidebar-toggle-icon">⬅️</span>
-                    <span id="sidebar-toggle-text" class="hidden sm:inline">Ocultar Menú</span>
-                </button>
-                
+                <!-- Isotipo de la Universidad -->
+                <div class="w-11 h-11 rounded-full bg-ucacue-red flex items-center justify-center text-white font-extrabold text-lg border-2 border-ucacue-gold shadow-md">
+                    UC
+                </div>
                 <div>
-                    <span class="text-[10px] font-black text-ucacue-red uppercase tracking-widest block">Carrera de Derecho</span>
-                    <h2 id="header-title" class="text-sm sm:text-base font-black text-gray-800 tracking-tight mt-0.5">Recurso 1: Sondeo Diagnóstico y Nube de Conceptos</h2>
+                    <h1 class="text-base font-black text-ucacue-red tracking-tight leading-none">Universidad Católica de Cuenca</h1>
+                    <p class="text-xs text-gray-500 font-bold mt-1">Realidad Socioeconómica • Aula Invertida Sincrónica</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3">
-                <span class="text-xs bg-gray-100 border border-gray-200 text-gray-600 font-bold px-3 py-1.5 rounded-full" id="role-badge">
-                    Rol: Profesor (Proyección)
-                </span>
+            
+            <!-- SELECTOR DE VISTAS (Pestañas unificadas para evitar URLs múltiples) -->
+            <div class="flex bg-gray-150 p-1 rounded-2xl border border-gray-200 bg-gray-100">
+                <button id="btn-mode-teacher" onclick="switchMode('teacher')" class="px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all duration-200 bg-white text-ucacue-red shadow-sm border border-gray-200/50">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    Vista Profesor (Pantalla Central)
+                </button>
+                <button id="btn-mode-student" onclick="switchMode('student')" class="px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all duration-200 text-gray-600 hover:text-gray-900">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    Vista Estudiante (Dispositivo)
+                </button>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- ÁREA DINÁMICA DE RECURSOS -->
-        <main class="flex-grow p-4 sm:p-6 lg:p-8">
+    <!-- NOTIFICACIONES TOAST (Reemplazo de alert() del navegador para evitar bloqueos) -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-12 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-gray-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-gray-800">
+            <span id="toast-icon" class="text-ucacue-gold text-lg">💡</span>
+            <p id="toast-text" class="text-xs font-bold tracking-tight"></p>
+        </div>
+    </div>
 
-            <!-- ================= RECURSO 1: VISTA PROFESOR ================= -->
-            <div id="view-teacher-r1" class="space-y-8 animate-fade-in">
-                <!-- PANEL SUPERIOR CON SIMULADOR -->
-                <div class="bg-gradient-to-r from-ucacue-red to-red-950 rounded-3xl p-6 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6">
-                    <div class="space-y-1 text-center lg:text-left">
-                        <span class="bg-red-800/80 text-ucacue-gold text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-widest border border-red-700/50">Simulador Sincrónico</span>
-                        <h3 class="text-xl font-black tracking-tight mt-1">Control del Profesor</h3>
-                        <p class="text-red-100 text-xs">Usa el simulador para ingresar votos automáticos y demostrar cómo funciona en vivo.</p>
-                    </div>
-                    
-                    <div class="bg-black/30 p-4 rounded-2xl border border-white/10 backdrop-blur-sm flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
-                        <div class="text-center sm:text-left shrink-0">
-                            <p class="text-xs font-bold text-ucacue-gold uppercase tracking-wider">Simulación de Clase</p>
-                            <p class="text-[10px] text-red-200">Recrea un aula activa de 50 alumnos</p>
-                        </div>
-                        <div class="flex gap-2 w-full sm:w-auto">
-                            <button id="btn-sim-start" onclick="toggleSimulation()" class="flex-grow sm:flex-none px-4 py-2.5 bg-ucacue-gold hover:bg-ucacue-goldDark text-gray-900 font-black text-xs rounded-xl transition shadow-md flex items-center justify-center gap-2">
-                                <span id="sim-icon">▶</span> <span id="sim-text">Iniciar Clase</span>
-                            </button>
-                        </div>
-                    </div>
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- ================= SECCIÓN PROFESOR (RECURSO 1 - PANTALLA CENTRAL) ================= -->
+        <section id="section-teacher" class="space-y-8">
+            
+            <!-- PANEL SUPERIOR: CONTROL SINCRE DE AULA Y SIMULADOR -->
+            <div class="bg-gradient-to-r from-ucacue-red to-red-950 rounded-3xl p-6 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center lg:text-left">
+                    <span class="bg-red-800/80 text-ucacue-gold text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-widest border border-red-700/50">Recurso 1: Proyección en Aula</span>
+                    <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Rompehielos Sincrónico</h2>
+                    <p class="text-red-100 text-sm max-w-xl">Mide el nivel cognitivo y la lectura previa de tus estudiantes sobre las doctrinas económicas del Ecuador.</p>
                 </div>
-
-                <!-- CONFIGURADOR URL GITHUB PAGES -->
-                <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-4">
-                    <div class="flex items-center gap-3 border-b border-gray-100 pb-3">
-                        <span class="text-xl">⚙️</span>
-                        <div>
-                            <h3 class="text-sm font-black text-gray-800 uppercase tracking-wide">Dirección URL del Aula (Sincronización de QR)</h3>
-                            <p class="text-[11px] text-gray-500 mt-0.5">El sistema apunta a tu GitHub Pages de forma predeterminada. Edítalo aquí para que el código QR y enlaces de copia apunten a tu dirección real.</p>
-                        </div>
+                
+                <!-- Panel de Simulación Sincrónica (Docente) -->
+                <div class="bg-black/30 p-4 rounded-2xl border border-white/10 backdrop-blur-sm flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
+                    <div class="text-center sm:text-left">
+                        <p class="text-xs font-bold text-ucacue-gold uppercase tracking-wider">Flujo de Aula Activo</p>
+                        <p class="text-[11px] text-red-200">Simula participaciones de estudiantes en vivo</p>
                     </div>
-                    <div class="flex flex-col md:flex-row gap-3">
-                        <input type="text" id="input-class-url" value="https://carloseduardochica-art.github.io/clase-contexto/" class="flex-grow p-3 text-xs font-mono rounded-xl border-2 border-gray-200 focus:border-ucacue-red focus:outline-none focus:bg-white transition" placeholder="Introduce la dirección de tu página de GitHub...">
-                        <button onclick="applyCustomUrl()" class="px-5 py-3 bg-slate-900 hover:bg-slate-800 text-white text-xs font-black rounded-xl transition shadow-md whitespace-nowrap">
-                            Sincronizar QR 🚀
+                    <div class="flex gap-2 w-full sm:w-auto">
+                        <button id="btn-sim-start" onclick="toggleSimulation()" class="flex-grow sm:flex-none px-4 py-2.5 bg-ucacue-gold hover:bg-ucacue-goldDark text-gray-900 font-black text-xs rounded-xl transition-all duration-150 shadow-md flex items-center justify-center gap-2">
+                            <span id="sim-icon">▶</span> <span id="sim-text">Iniciar Clase</span>
+                        </button>
+                        <button onclick="resetAllSincro()" class="px-3 py-2.5 bg-red-900/40 hover:bg-red-900/60 text-white rounded-xl transition text-xs font-bold border border-red-700/30" title="Reiniciar datos">
+                            🗑️
                         </button>
                     </div>
                 </div>
-
-                <!-- SECCIÓN DE GRÁFICOS Y QR -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                    <!-- QR de Acceso -->
-                    <div class="lg:col-span-4 bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center flex flex-col items-center justify-center space-y-5 animate-fade-in">
-                        <div>
-                            <span class="text-[9px] font-black text-gray-400 uppercase tracking-widest block">Escanea para Entrar</span>
-                            <h4 class="text-base font-black text-gray-800 mt-1">Únete desde tu Celular</h4>
-                        </div>
-                        <div class="p-3 bg-gray-50 rounded-2xl border border-gray-200/60 shadow-inner relative">
-                            <img id="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://carloseduardochica-art.github.io/clase-contexto/&color=1E2022" alt="Código QR" class="w-40 h-44 mx-auto rounded-xl object-contain bg-white p-1">
-                        </div>
-                        <span id="display-class-url" class="text-[11px] font-mono text-ucacue-red font-bold overflow-hidden text-ellipsis whitespace-nowrap max-w-full block">https://carloseduardochica-art.github.io/clase-contexto/</span>
-                    </div>
-
-                    <!-- Gráficos de Encuesta y Nube -->
-                    <div class="lg:col-span-8 space-y-6">
-                        <!-- Votaciones -->
-                        <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-4">
-                            <h4 class="text-xs font-black text-gray-500 uppercase tracking-wider">Sondeo de Entrada: Inversión en Derechos vs. Deuda</h4>
-                            <div class="space-y-4">
-                                <!-- Opción A -->
-                                <div class="space-y-1">
-                                    <div class="flex justify-between text-xs font-bold text-gray-700">
-                                        <span>Opción A: Gasto social y Buen Vivir como prioridad absoluta (Art. 290 CRE)</span>
-                                        <span id="bar-a-label" class="text-ucacue-red font-black">0% (0 votos)</span>
-                                    </div>
-                                    <div class="w-full bg-gray-100 h-4 rounded-full overflow-hidden border border-gray-200/50 shadow-inner">
-                                        <div id="bar-a-fill" class="bg-gradient-to-r from-ucacue-red to-red-600 h-full w-0 transition-all duration-500"></div>
-                                    </div>
-                                </div>
-                                <!-- Opción B -->
-                                <div class="space-y-1">
-                                    <div class="flex justify-between text-xs font-bold text-gray-700">
-                                        <span>Opción B: Cumplimiento de deuda externa para sostener inserción global</span>
-                                        <span id="bar-b-label" class="text-gray-600 font-black">0% (0 votos)</span>
-                                    </div>
-                                    <div class="w-full bg-gray-100 h-4 rounded-full overflow-hidden border border-gray-200/50 shadow-inner">
-                                        <div id="bar-b-fill" class="bg-gradient-to-r from-gray-400 to-gray-500 h-full w-0 transition-all duration-500"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Nube de Palabras -->
-                        <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-3">
-                            <div class="flex justify-between items-center">
-                                <h4 class="text-xs font-black text-gray-500 uppercase tracking-wider">Asociación Libre: ¿Qué define la dependencia económica?</h4>
-                                <span class="text-xs text-gray-400 font-bold bg-gray-50 px-3 py-1 rounded-full border border-gray-200" id="text-word-count">Conceptos: 0</span>
-                            </div>
-                            <div id="word-cloud-container" class="w-full min-h-[140px] bg-slate-900 rounded-2xl flex flex-wrap items-center justify-center p-6 gap-3 transition-all duration-500 border border-slate-850 shadow-inner">
-                                <p id="cloud-placeholder" class="text-slate-500 text-xs font-bold uppercase tracking-wider animate-pulse text-center">Esperando envíos de los estudiantes...</p>
-                            </div>
-                        </div>
-
-                        <!-- Feed de Respuestas -->
-                        <div class="bg-white p-5 rounded-3xl border border-gray-200 shadow-sm space-y-3">
-                            <h4 class="text-xs font-black text-gray-500 uppercase tracking-wider">Historial de Envío Sincrónico</h4>
-                            <div id="activity-feed" class="h-28 overflow-y-auto space-y-2 text-xs text-gray-600 pr-1">
-                                <p class="italic text-gray-400">El feed se poblará automáticamente al iniciar la simulación o recibir participaciones...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-            <!-- ================= RECURSO 2: VISTA PROFESOR (TARJETAS PROYECTABLES EN GRANDE) ================= -->
-            <div id="view-teacher-r2" class="hidden space-y-8 animate-fade-in">
-                <div class="max-w-3xl mx-auto space-y-6">
-                    <div class="bg-white p-5 rounded-3xl border border-gray-200 shadow-sm flex items-center justify-between">
-                        <div>
-                            <span class="text-[9px] font-black text-ucacue-red uppercase tracking-widest block">Herramienta de Explicación</span>
-                            <h3 class="text-base font-black text-gray-800 mt-0.5">Proyección Central de Tarjetas</h3>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <button onclick="changeCard(-1)" class="p-2.5 rounded-xl bg-gray-150 hover:bg-gray-200 text-gray-700 transition bg-gray-100">
-                                ◀
-                            </button>
-                            <span id="proj-card-indicator" class="text-xs font-black text-gray-700 font-mono">1 / 4</span>
-                            <button onclick="changeCard(1)" class="p-2.5 rounded-xl bg-gray-150 hover:bg-gray-200 text-gray-700 transition bg-gray-100">
-                                ▶
-                            </button>
-                        </div>
+            <!-- CONFIGURADOR DINÁMICO DE ENLACES -->
+            <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-4">
+                <div class="flex items-center gap-3 border-b border-gray-100 pb-3">
+                    <span class="text-xl">⚙️</span>
+                    <div>
+                        <h3 class="text-sm font-black text-gray-800 uppercase tracking-wide">Dirección URL del Aula (Sincronización de QR)</h3>
+                        <p class="text-[11px] text-gray-500 mt-0.5">Por defecto el sistema apunta a tu dirección de GitHub Pages. Si deseas cambiar el destino del QR en vivo, edítalo aquí.</p>
                     </div>
-
-                    <!-- TARJETA EN GRANDE PARA EL AULA -->
-                    <div class="perspective-1000 w-full h-[380px] cursor-pointer" onclick="flipCard()">
-                        <div id="proj-flashcard" class="w-full h-full transform-style-3d transition-transform-600 relative rounded-3xl shadow-xl border border-gray-200">
-                            
-                            <!-- CARA FRONTAL -->
-                            <div class="absolute inset-0 backface-hidden bg-white p-8 flex flex-col justify-between rounded-3xl">
-                                <div class="flex justify-between items-start">
-                                    <span class="bg-red-50 text-ucacue-red text-xs font-black px-3.5 py-1 rounded-full uppercase border border-red-100" id="proj-front-category">Colonialismo & Dependencia</span>
-                                    <span class="text-xs text-slate-400 font-bold uppercase tracking-tight bg-slate-100 px-3 py-1 rounded-full border border-slate-200 animate-pulse">Clic para Girar</span>
-                                </div>
-                                <div class="my-auto space-y-5">
-                                    <h4 class="text-2xl font-black text-gray-800 leading-tight" id="proj-front-question">
-                                        ¿Cómo afecta la Teoría de la Dependencia a la soberanía económica de América Latina frente a la globalización?
-                                    </h4>
-                                    <div class="bg-amber-50 rounded-2xl p-4 border border-amber-100 flex items-start gap-3">
-                                        <span class="text-xl">💡</span>
-                                        <div>
-                                            <h5 class="text-[10px] font-black text-amber-800 uppercase tracking-wider">Insumo de Análisis Cognitivo</h5>
-                                            <p class="text-xs text-amber-900 mt-1" id="proj-front-clue">
-                                                Analiza el intercambio desigual asimétrico crónico entre países centrales y periféricos.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center text-[11px] text-gray-400 font-black">
-                                    <span>CONEXTO, CULTURA Y REALIDAD SOCIOECONÓMICA</span>
-                                    <span class="text-ucacue-red uppercase">Clase Magistral Sincrónica</span>
-                                </div>
-                            </div>
-
-                            <!-- CARA TRASERA -->
-                            <div class="absolute inset-0 backface-hidden rotate-y-180 bg-slate-900 text-white p-8 flex flex-col justify-between rounded-3xl">
-                                <div class="flex justify-between items-center">
-                                    <span class="bg-slate-800 text-ucacue-gold text-xs font-black px-3.5 py-1 rounded-full uppercase border border-slate-700">Respuesta Constitucional / Jurídica</span>
-                                    <span class="text-xs text-slate-400 font-bold uppercase">Clic para volver a la pregunta</span>
-                                </div>
-                                <div class="my-auto space-y-4">
-                                    <p class="text-sm leading-relaxed text-slate-200 font-medium" id="proj-back-answer">
-                                        La Teoría de la Dependencia (CEPAL) expone que la inserción de América Latina en la globalización reproduce un intercambio desigual. La periferia transfiere valor al exportar materias primas baratas mientras importa tecnología costosa del centro, lo cual supedita las decisiones soberanas a organismos multilaterales y acreedores.
-                                    </p>
-                                    <div class="bg-slate-850 p-4 rounded-2xl border border-slate-700/60 text-xs text-slate-300">
-                                        <span class="font-bold text-ucacue-gold">Anclaje Constitucional:</span> <span id="proj-back-law">Soberanía Alimentaria e Inserción Económica - Título VI</span>
-                                    </div>
-                                </div>
-                                <div class="flex items-center justify-between text-[11px] text-slate-400 font-black">
-                                    <span>DRA. JUAN CARLOS ROMERO • LITIGIO PRÁCTICO</span>
-                                    <span class="bg-green-500/15 text-green-400 px-3 py-1 rounded border border-green-500/20 font-black">Validado</span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <button onclick="flipCard()" class="w-full py-4 bg-ucacue-red hover:bg-ucacue-redDark text-white text-xs font-black rounded-2xl shadow-md transition uppercase tracking-wider">
-                        Voltear Tarjeta / Revelar Respuesta
+                </div>
+                <div class="flex flex-col md:flex-row gap-3">
+                    <input type="text" id="input-class-url" value="https://carloseduardochica-art.github.io/clase-contexto/" class="flex-grow p-3 text-xs font-mono rounded-xl border-2 border-gray-200 focus:border-ucacue-red focus:outline-none focus:bg-white transition" placeholder="Introduce la dirección de tu página de GitHub o IP local...">
+                    <button onclick="applyCustomUrl()" class="px-5 py-3 bg-slate-900 hover:bg-slate-800 text-white text-xs font-black rounded-xl transition shadow-md whitespace-nowrap">
+                        Actualizar QR y Enlace 🚀
                     </button>
                 </div>
             </div>
 
-            <!-- ================= RECURSO 1: VISTA ESTUDIANTE ================= -->
-            <div id="view-student-r1" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 animate-fade-in">
-                <!-- Columna Izquierda: Formulario -->
+            <!-- GRID PRINCIPAL DE LA PROYECCIÓN -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- QR de Acceso y Enlace Sincro (4/12 cols) -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center flex flex-col items-center justify-center space-y-6">
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest block">Acceso Estudiantes</span>
+                            <h3 class="text-lg font-black text-gray-800">Participación en Vivo</h3>
+                            <p class="text-xs text-gray-500">Escanea el código QR con tu móvil para unirte al debate de la clase.</p>
+                        </div>
+
+                        <!-- CÓDIGO QR GENERADO DINÁMICAMENTE -->
+                        <div class="p-4 bg-gray-50 rounded-3xl border border-gray-200/60 shadow-inner relative">
+                            <!-- Imagen que carga el código QR dinámicamente apuntando a tu URL real -->
+                            <img id="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://carloseduardochica-art.github.io/clase-contexto/&color=1E2022" alt="Código QR de la Clase" class="w-44 h-44 mx-auto rounded-xl object-contain bg-white p-1 border border-gray-150 transition-transform duration-300" onerror="handleQrError()">
+                            <span class="absolute top-2 right-2 flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </span>
+                        </div>
+
+                        <!-- Link de Copia Dinámico -->
+                        <div class="space-y-1.5 w-full">
+                            <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider block">Dirección de Conexión</span>
+                            <div class="flex items-center gap-1 bg-gray-100 p-2.5 rounded-xl border border-gray-200 w-full justify-between overflow-hidden">
+                                <span id="display-class-url" class="text-xs font-mono text-ucacue-red font-bold overflow-hidden text-ellipsis whitespace-nowrap">https://carloseduardochica-art.github.io/clase-contexto/</span>
+                                <button onclick="copyAccessLink()" class="p-1.5 hover:bg-gray-200 rounded-lg text-gray-500 transition-colors" title="Copiar enlace">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 00-2 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m-5 10h5m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Estado sincrónico en vivo -->
+                        <div class="w-full pt-4 border-t border-gray-150 flex items-center justify-between text-xs font-bold text-gray-500">
+                            <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span> Servidor Conectado</span>
+                            <span id="p-voters-count" class="bg-gray-100 px-2.5 py-1 rounded-full border border-gray-200 font-mono">Alumnos: 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos de Resultados y Nube (8/12 cols) -->
+                <div class="lg:col-span-8 space-y-6">
+                    
+                    <!-- PANEL DE SONDEO DIAGNÓSTICO EN TIEMPO REAL -->
+                    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-6">
+                        <div class="border-b border-gray-100 pb-4">
+                            <span class="bg-amber-100 text-amber-800 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">Sondeo de Entrada</span>
+                            <h3 class="text-xl font-black text-gray-800 mt-2">Gasto de Inversión vs. Compromisos de Deuda</h3>
+                            <p class="text-xs text-gray-500 leading-relaxed">¿Debe la política de gasto social y redistribución condicionar o subordinar los compromisos de deuda externa bajo el marco constitucional del Buen Vivir (Art. 275)?</p>
+                        </div>
+
+                        <!-- Estructura de Barras Dinámicas -->
+                        <div class="space-y-4">
+                            
+                            <!-- Opción A: Gasto Social -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center text-xs font-bold text-gray-700">
+                                    <span class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-ucacue-red"></span>
+                                        Opción A: Gasto social como derecho humano fundamental y prioritario (Montecristi 2008)
+                                    </span>
+                                    <span id="bar-a-label" class="text-ucacue-red font-black text-sm">0% (0 votos)</span>
+                                </div>
+                                <div class="w-full bg-gray-150 h-5 rounded-full overflow-hidden border border-gray-200 shadow-inner bg-gray-100">
+                                    <div id="bar-a-fill" class="bg-gradient-to-r from-ucacue-red to-red-600 h-full w-0 transition-all duration-500 ease-out"></div>
+                                </div>
+                            </div>
+
+                            <!-- Opción B: Deuda -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center text-xs font-bold text-gray-700">
+                                    <span class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-gray-400"></span>
+                                        Opción B: Pago de deuda como prioridad fiscal para sostener la credibilidad financiera de mercado
+                                    </span>
+                                    <span id="bar-b-label" class="text-gray-600 font-black text-sm">0% (0 votos)</span>
+                                </div>
+                                <div class="w-full bg-gray-150 h-5 rounded-full overflow-hidden border border-gray-200 shadow-inner bg-gray-100">
+                                    <div id="bar-b-fill" class="bg-gradient-to-r from-gray-400 to-gray-500 h-full w-0 transition-all duration-500 ease-out"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- NUBE DE PALABRAS CONCEPTUALES -->
+                    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-4">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-gray-150 pb-4 gap-2">
+                            <div>
+                                <span class="bg-slate-100 text-slate-800 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">Asociación de Conceptos</span>
+                                <h3 class="text-lg font-black text-gray-800 mt-1">Nube en Vivo: ¿Qué define al Buen Vivir o Sumak Kawsay?</h3>
+                            </div>
+                            <span class="text-xs text-gray-400 font-bold bg-gray-50 px-3 py-1 rounded-full border border-gray-200" id="text-word-count">Conceptos: 0</span>
+                        </div>
+
+                        <!-- Espacio de la Nube -->
+                        <div id="word-cloud-container" class="w-full min-h-[180px] bg-slate-900 rounded-2xl flex flex-wrap items-center justify-center p-6 gap-3 sm:gap-4 transition-all duration-500 border border-slate-850 shadow-inner overflow-hidden relative">
+                            <p id="cloud-placeholder" class="text-slate-500 text-xs font-bold uppercase tracking-wider animate-pulse text-center">Esperando envíos de los estudiantes...</p>
+                        </div>
+                    </div>
+
+                    <!-- FEED DE ACTIVIDAD EN VIVO -->
+                    <div class="bg-white p-5 rounded-3xl border border-gray-200 shadow-sm space-y-3">
+                        <h4 class="text-xs font-black text-gray-500 uppercase tracking-wider flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span> Historial de Respuestas Sincrónicas
+                        </h4>
+                        <div id="activity-feed" class="h-28 overflow-y-auto space-y-2 text-xs text-gray-600 pr-1">
+                            <p class="italic text-gray-400">El feed se poblará automáticamente al ingresar votos o iniciar la simulación...</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= SECCIÓN ESTUDIANTE (VISTA DESDE DISPOSITIVO) ================= -->
+        <section id="section-student" class="hidden space-y-8 animate-fade-in">
+            
+            <!-- BIENVENIDA ESTUDIANTE -->
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm flex flex-col md:flex-row items-center gap-6 justify-between">
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="bg-red-50 text-ucacue-red text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider border border-red-100">Interacción Activa</span>
+                    <h2 class="text-2xl font-black text-gray-800 tracking-tight">Consola de Respuestas de Estudiante</h2>
+                    <p class="text-xs sm:text-sm text-gray-500 max-w-xl">Envía tus respuestas sincrónicas al panel de proyección general o repasa con las tarjetas didácticas de apoyo cognitivo.</p>
+                </div>
+                <!-- Pestañas internas -->
+                <div class="flex bg-gray-100 p-1.5 rounded-2xl border border-gray-200 shadow-inner w-full md:w-auto">
+                    <button id="tab-student-poll" onclick="switchStudentTab('poll')" class="flex-grow md:flex-none px-4 py-2 rounded-xl text-xs font-bold bg-white text-gray-800 shadow-sm">
+                        Sondeo Activo
+                    </button>
+                    <button id="tab-student-cards" onclick="switchStudentTab('cards')" class="flex-grow md:flex-none px-4 py-2 rounded-xl text-xs font-bold text-gray-600 hover:text-gray-900">
+                        Tarjetas Didácticas (Recurso 2)
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 1: SONDEO DIAGNÓSTICO -->
+            <div id="tab-content-poll" class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Formulario de Envío (7/12 cols) -->
                 <div class="lg:col-span-7 space-y-6">
                     <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6">
                         <div class="border-b border-gray-100 pb-4">
-                            <h3 class="text-lg font-black text-gray-800 leading-tight">Envía tu Voto Sincrónico</h3>
-                            <p class="text-xs text-gray-500 mt-1">Selecciona la postura socio-jurídica que defiendes.</p>
+                            <h3 class="text-lg font-black text-gray-800 leading-tight">1. Envía tu Voto al Panel General</h3>
+                            <p class="text-xs text-gray-500 mt-1">Selecciona una de las posturas de desarrollo del Ecuador y presiona enviar.</p>
                         </div>
 
+                        <!-- Opciones de Votación -->
                         <div class="space-y-3">
                             <label class="block relative">
                                 <input type="radio" name="student-vote" value="A" class="peer sr-only">
@@ -346,8 +296,8 @@
                                         <div class="w-2.5 h-2.5 rounded-full bg-ucacue-red opacity-0 peer-checked:opacity-100 transition"></div>
                                     </div>
                                     <div>
-                                        <span class="block text-xs font-bold text-gray-800 uppercase tracking-wider mb-1">Postura A (Constitucionalista / Derechos)</span>
-                                        <p class="text-xs text-gray-600 leading-relaxed">Priorizar los derechos humanos y del Buen Vivir sobre las imposiciones de la deuda externa por mandato soberano (Art. 290 CRE).</p>
+                                        <span class="block text-xs font-bold text-gray-800 uppercase tracking-wider mb-1">Postura A (Constitucionalista)</span>
+                                        <p class="text-xs text-gray-600 leading-relaxed">Priorizar la inversión social en infraestructura para garantizar el buen vivir, la salud y la redistribución (Régimen de Desarrollo - Art. 275).</p>
                                     </div>
                                 </div>
                             </label>
@@ -359,34 +309,37 @@
                                         <div class="w-2.5 h-2.5 rounded-full bg-slate-800 opacity-0 peer-checked:opacity-100 transition"></div>
                                     </div>
                                     <div>
-                                        <span class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">Postura B (Cumplimiento de Obligaciones Financieras)</span>
-                                        <p class="text-xs text-gray-600 leading-relaxed">Priorizar el pago ininterrumpido de las obligaciones crediticias para asegurar credibilidad y solidez fiscal comercial.</p>
+                                        <span class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">Postura B (Ajuste y Sostenibilidad Financiera)</span>
+                                        <p class="text-xs text-gray-600 leading-relaxed">Priorizar el pago de deudas de financiamiento externo para sostener el acceso al crédito e inserción en la economía de mercado global.</p>
                                     </div>
                                 </div>
                             </label>
                         </div>
 
                         <button onclick="submitStudentVote()" class="w-full py-3.5 bg-ucacue-red hover:bg-ucacue-redDark text-white text-xs font-black rounded-2xl transition shadow-md tracking-wider uppercase">
-                            Enviar Voto al Servidor Sincrónico
+                            Enviar Voto Sincrónico
                         </button>
                     </div>
 
-                    <!-- Enviar concepto -->
-                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-4">
-                        <div class="border-b border-gray-100 pb-3">
-                            <h3 class="text-lg font-black text-gray-800 leading-tight">Aporte Conceptual de Aula Invertida</h3>
-                            <p class="text-xs text-gray-500 mt-1">Escribe un concepto que asocies con colonialismo, globalización o dependencia.</p>
+                    <!-- Enviar conceptos al Word Cloud -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6">
+                        <div class="border-b border-gray-100 pb-4">
+                            <h3 class="text-lg font-black text-gray-800 leading-tight">2. Envía tu Concepto para la Nube de Palabras</h3>
+                            <p class="text-xs text-gray-500 mt-1">Escribe una palabra o concepto jurídico clave (ej: dignidad, soberanía, redistribución) para alimentar la nube en pantalla central.</p>
                         </div>
-                        <div class="flex gap-2">
-                            <input type="text" id="student-concept-input" placeholder="Ej. Colonialismo, CIADI, Dependencia" class="flex-grow p-4 text-xs font-bold bg-gray-50 rounded-2xl border-2 border-gray-200 focus:border-ucacue-red focus:bg-white focus:outline-none transition uppercase tracking-wider">
-                            <button onclick="submitStudentConcept()" class="px-5 py-3.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-black rounded-2xl transition shadow-md whitespace-nowrap">
-                                Enviar
+
+                        <div class="space-y-4">
+                            <div class="relative">
+                                <input type="text" id="student-concept-input" placeholder="Escribe tu concepto..." class="w-full p-4 text-xs font-bold bg-gray-50 rounded-2xl border-2 border-gray-200 focus:border-ucacue-red focus:bg-white focus:outline-none transition uppercase tracking-wider">
+                            </div>
+                            <button onclick="submitStudentConcept()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white text-xs font-black rounded-2xl transition shadow-md tracking-wider uppercase">
+                                Enviar Concepto a la Nube
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Glosario -->
+                <!-- Glosario de Apoyo (5/12 cols) -->
                 <div class="lg:col-span-5 space-y-6">
                     <div class="bg-[#1E2022] text-white p-6 sm:p-8 rounded-3xl space-y-6 shadow-lg">
                         <div class="flex items-center gap-3">
@@ -399,38 +352,41 @@
 
                         <div class="space-y-4 text-xs">
                             <div class="border-l-2 border-ucacue-gold pl-3 space-y-1">
-                                <h5 class="font-bold text-gray-200 uppercase">Teoría de la Dependencia</h5>
-                                <p class="text-gray-300 leading-relaxed">Explicación socioeconómica sobre el intercambio desigual asimétrico crónico entre países centrales (industriales) y periféricos (proveedores de materias primas).</p>
+                                <h5 class="font-bold text-gray-200 uppercase">Sustitución de Importaciones</h5>
+                                <p class="text-gray-300 leading-relaxed">Modelo industrialista (CEPAL) de fomento de manufactura interna para reducir dependencia de insumos extranjeros.</p>
                             </div>
                             <div class="border-l-2 border-ucacue-gold pl-3 space-y-1">
-                                <h5 class="font-bold text-gray-200 uppercase">Soberanía de Deuda (Art. 289-290 CRE)</h5>
-                                <p class="text-gray-300 leading-relaxed">Prohibición de endeudamiento público para financiar gasto corriente y obligación de priorizar el Buen Vivir frente a presiones crediticias.</p>
+                                <h5 class="font-bold text-gray-200 uppercase">Neoliberalismo (Const. 1998)</h5>
+                                <p class="text-gray-300 leading-relaxed">Modelo económico clásico de privatizaciones, desregulación de mercado y limitación del Estado a un rol espectador.</p>
                             </div>
                             <div class="border-l-2 border-ucacue-gold pl-3 space-y-1">
-                                <h5 class="font-bold text-gray-200 uppercase">Prohibición de Cesión de Jurisdicción</h5>
-                                <p class="text-gray-300 leading-relaxed">Mandato constitucional del Art. 422 que impide firmar convenios donde se cedan litigios soberanos o contractuales a tribunales privados internacionales (como el CIADI).</p>
+                                <h5 class="font-bold text-gray-200 uppercase">Buen Vivir / Posneoliberalismo</h5>
+                                <p class="text-gray-300 leading-relaxed">Paradigma neoconstitucional de la Constitución de 2008. Prioriza la inversión, redistribución y planificación estatal.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-            <!-- ================= RECURSO 2: VISTA ESTUDIANTE (REPASO INDIVIDUAL) ================= -->
-            <div id="view-student-r2" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 animate-fade-in">
-                <!-- Tarjeta Interactiva de Autoevaluación -->
+            <!-- TAB 2: TARJETAS DIDÁCTICAS (RECURSO 2 - REPASO INDIVIDUAL) -->
+            <div id="tab-content-cards" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Tarjetas (7/12 cols) -->
                 <div class="lg:col-span-7 space-y-6">
+                    
                     <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
                         <div class="flex flex-col">
-                            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Estudio Autónomo</span>
-                            <span class="text-xs font-bold text-gray-700">Autoevaluación de Refuerzo</span>
+                            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Recurso 2</span>
+                            <span class="text-xs font-bold text-gray-700">Autoevaluación de Aprendizaje Guiado</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <button onclick="changeCard(-1)" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 transition">
-                                ◀
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                             </button>
-                            <span class="text-xs font-black text-gray-700 font-mono" id="card-indicator">1 / 4</span>
+                            <span class="text-xs font-bold text-gray-700 font-mono" id="card-indicator">1 / 4</span>
                             <button onclick="changeCard(1)" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 transition">
-                                ▶
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             </button>
                         </div>
                     </div>
@@ -442,49 +398,55 @@
                             <!-- CARA FRONTAL -->
                             <div class="absolute inset-0 backface-hidden bg-white p-6 sm:p-8 flex flex-col justify-between rounded-3xl">
                                 <div class="flex justify-between items-start">
-                                    <span class="bg-red-50 text-ucacue-red text-[10px] font-black px-2.5 py-1 rounded-full uppercase border border-red-100" id="card-front-category">Colonialismo & Dependencia</span>
+                                    <span class="bg-red-50 text-ucacue-red text-[10px] font-black px-2.5 py-1 rounded-full uppercase border border-red-100" id="card-front-category">Modelo Neoliberal vs. Posneoliberal</span>
                                     <div class="text-[10px] text-gray-400 font-bold uppercase flex items-center gap-1">
                                         <span>Girar</span>
                                         <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.228 5.682M21 12H3"></path></svg>
                                     </div>
                                 </div>
+                                
                                 <div class="my-auto space-y-4">
                                     <h3 class="text-lg sm:text-xl font-black text-gray-800 leading-tight" id="card-front-question">
-                                        ¿Cómo afecta la Teoría de la Dependencia a la soberanía económica de América Latina frente a la globalización?
+                                        ¿Qué diferencia sustancial existe en el rol del Estado entre el Neoliberalismo y el Posneoliberalismo?
                                     </h3>
+                                    
+                                    <!-- Pista Guiada -->
                                     <div class="bg-amber-50 rounded-2xl p-4 border border-amber-100 flex items-start gap-2.5">
                                         <span class="text-lg mt-0.5">💡</span>
                                         <div>
-                                            <h4 class="text-[10px] font-black text-amber-800 uppercase tracking-wider">Concepto Clave</h4>
+                                            <h4 class="text-[10px] font-black text-amber-800 uppercase tracking-wider">Pista de Estudio</h4>
                                             <p class="text-xs text-amber-900 mt-0.5" id="card-front-clue">
-                                                Piensa en el rol de América Latina como exportadora neta de recursos de bajo valor frente al "centro" industrializado.
+                                                Compara el modelo de la Constitución de 1998 (mercado desregulado) con el de Montecristi 2008 (Estado garantista y planificador).
                                             </p>
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <div class="flex justify-between items-center text-[10px] text-gray-400 font-bold">
                                     <span>REALIDAD SOCIOECONÓMICA</span>
-                                    <span class="text-ucacue-red uppercase font-black">Apuntes Sincrónicos 📝</span>
+                                    <span class="text-ucacue-red uppercase font-black">Toma apuntes 📝</span>
                                 </div>
                             </div>
 
                             <!-- CARA TRASERA -->
                             <div class="absolute inset-0 backface-hidden rotate-y-180 bg-slate-900 text-white p-6 sm:p-8 flex flex-col justify-between rounded-3xl">
                                 <div class="flex justify-between items-center">
-                                    <span class="bg-slate-800 text-ucacue-gold text-[10px] font-black px-2.5 py-1 rounded-full uppercase border border-slate-700">Argumento Sociológico-Estructural</span>
+                                    <span class="bg-slate-800 text-ucacue-gold text-[10px] font-black px-2.5 py-1 rounded-full uppercase border border-slate-700">Argumento Constitucional</span>
                                     <span class="text-[10px] text-slate-400 font-bold uppercase">Volver</span>
                                 </div>
+
                                 <div class="my-auto space-y-4">
                                     <p class="text-xs sm:text-sm leading-relaxed text-slate-200" id="card-back-answer">
-                                        La Teoría de la Dependencia (CEPAL) expone que la inserción de América Latina en la globalización reproduce un intercambio desigual. La periferia transfiere valor al exportar materias primas baratas mientras importa tecnología costosa del centro, lo cual supedita las decisiones soberanas a organismos multilaterales y acreedores.
+                                        El modelo neoliberal (bajo la derogada Constitución de 1998) redujo la intervención estatal para priorizar las privatizaciones y la flexibilización. Por el contrario, el posneoliberalismo (Constitución de 2008 vigente) consagra al Estado como planificador activo de la economía para garantizar la redistribución y el régimen de desarrollo.
                                     </p>
                                     <div class="bg-slate-850 p-3 rounded-xl border border-slate-700/60 text-[11px] text-slate-300">
-                                        <span class="font-bold text-ucacue-gold">Anclaje Constitucional:</span> <span id="card-back-law">Soberanía Alimentaria e Inserción Económica - Título VI</span>
+                                        <span class="font-bold text-ucacue-gold">Anclaje Legal:</span> <span id="card-back-law">Régimen de Desarrollo - Arts. 275 y 276.</span>
                                     </div>
                                 </div>
+
                                 <div class="flex items-center justify-between text-[10px] text-slate-400 font-bold">
-                                    <span>carloseduardochica-art.github.io</span>
-                                    <span class="bg-green-500/15 text-green-400 px-2 py-0.5 rounded border border-green-500/20 font-black">Contenido Sincronizado</span>
+                                    <span>FACULTAD DE DERECHO</span>
+                                    <span class="bg-green-500/15 text-green-400 px-2 py-0.5 rounded border border-green-500/20 font-black">Contenido Validado</span>
                                 </div>
                             </div>
 
@@ -502,71 +464,91 @@
                     </div>
                 </div>
 
-                <!-- Progreso Individual -->
+                <!-- Progreso Individual (5/12 cols) -->
                 <div class="lg:col-span-5 space-y-6">
                     <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-6">
                         <div class="border-b border-gray-100 pb-4">
                             <h3 class="text-sm font-black text-gray-800 uppercase tracking-wider">Tu Progreso del Bloque</h3>
                         </div>
+                        
                         <div class="flex items-center justify-between">
                             <span class="text-xs font-bold text-gray-500">Doctrinas Dominadas:</span>
                             <span id="student-stat-completed" class="text-xl font-black text-ucacue-red">0 / 4</span>
                         </div>
+
                         <!-- Barra de progreso -->
                         <div class="w-full bg-gray-100 h-2.5 rounded-full overflow-hidden border border-gray-200">
                             <div id="student-progress-bar" class="bg-ucacue-red h-full w-0 transition-all duration-300"></div>
                         </div>
-                        <p class="text-xs text-gray-500 leading-normal">Asimila y comprende los contenidos cognitivos sobre relaciones internacionales y soberanía para preparar tus trabajos y alegatos de litigio constitucional.</p>
+
+                        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 text-xs text-gray-600 leading-relaxed">
+                            Asegúrate de repasar y dominar las 4 tarjetas didácticas antes de realizar la actividad práctica de litigio sobre políticas públicas en el Ecuador.
+                        </div>
                     </div>
                 </div>
+
             </div>
 
-        </main>
-    </div>
+        </section>
 
-    <!-- LOGICA DE CONTROL DE LA CONSOLA SINCRO -->
+    </main>
+
+    <!-- PIE DE PÁGINA ACADÉMICO -->
+    <footer class="bg-white border-t border-gray-200 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-bold">
+            <span class="flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-ucacue-red"></span>
+                Facultad de Ciencias Sociales • Carrera de Derecho
+            </span>
+            <span>Unidad de E-Learning - UCACUE</span>
+        </div>
+    </footer>
+
+
+    <!-- LOGICA DE CONTROL DE LA APLICACIÓN -->
     <script>
         // CONFIGURACIÓN DE LAS TARJETAS DE ESTUDIO (RECURSO 2)
         const flashcardsData = [
             {
-                category: "Colonialismo & Dependencia",
-                question: "¿Cómo afecta la Teoría de la Dependencia a la soberanía económica de América Latina frente a la globalización?",
-                clue: "Asocia el intercambio desigual (exportación de materias primas e importación de manufacturas) de Prebisch.",
-                answer: "La Teoría de la Dependencia expone que América Latina se inserta en la globalización en una condición de periferia exportadora de bajo valor frente a centros industriales. Esto provoca intercambio desigual, transferencia neta de recursos y dependencia fiscal, lo cual limita la soberanía política de los Estados.",
-                law: "Régimen de Desarrollo de Soberanía Económica - Art. 284 CRE."
+                category: "Modelo Neoliberal vs. Posneoliberal",
+                question: "¿Qué diferencia sustancial existe en el rol del Estado entre el Neoliberalismo y el Posneoliberalismo?",
+                clue: "Asocia la Constitución de 1998 (mercado desregulado) con la de Montecristi 2008 (Estado regulador e inversor).",
+                answer: "El Neoliberalismo (impulsado en la Constitución de 1998, ya derogada) redujo la intervención del Estado limitándolo a la desregulación, privatización y flexibilización financiera. El Posneoliberalismo (Eje de la Constitución de 2008 vigente) sitúa al Estado como planificador activo de la economía nacional, garantizando la redistribución y el régimen de desarrollo.",
+                law: "Régimen de Desarrollo - Arts. 275 y 276 (CRE)."
             },
             {
-                category: "Integración Regional",
-                question: "What principles govern Regional Integration and International Relations in Montecristi (Art. 416)?",
-                clue: "Busca la defensa de la soberanía, paz, autodeterminación de los pueblos e integración regional.",
-                answer: "El Art. 416 de la Constitución consagra que el Ecuador busca la integración prioritaria de América Latina y el Caribe, el fomento de la paz, la autodeterminación de los pueblos y la prohibición expresa de cualquier forma de hegemonía transnacional o neocolonialismo.",
-                law: "Principio de Relaciones Internacionales - Art. 416 CRE."
+                category: "Buen Vivir (Sumak Kawsay)",
+                question: "¿Cómo define la Constitución de 2008 al Sumak Kawsay / Buen Vivir?",
+                clue: "Evita definirlo como simple crecimiento materialista; asócialo al bien común y la relación armónica.",
+                answer: "No es una utopía poética, sino el marco rector constitucional del régimen de desarrollo. El Art. 275 de la CRE lo consagra como el conjunto dinámico de sistemas económicos, socio-culturales y ambientales que aseguran la realización del bien común, la paz, la interculturalidad y la relación armónica con la naturaleza.",
+                law: "Título VI, Capítulo Primero del Régimen de Desarrollo, Art. 275 (CRE)."
             },
             {
-                category: "Crisis de Deuda Pública",
-                question: "¿Cómo limita y regula constitucionalmente la Carta de 2008 el endeudamiento y pago de deuda (Art. 289-290)?",
-                clue: "Revisa la prohibición absoluta de destinar créditos al gasto corriente y la obligación de auditar.",
-                answer: "Los Arts. 289 y 290 de la CRE prohíben contraer deuda pública para financiar gasto corriente estatal (pago de salarios), obligan a someter las deudas a auditorías de legitimidad e imponen que el servicio de la deuda no afecte los derechos constitucionales de salud, educación y Buen Vivir.",
-                law: "Garantías y Planificación de Deuda - Arts. 289 y 290 CRE."
+                category: "Políticas Públicas e Inversión",
+                question: "¿Qué función cumple la Inversión Pública en el marco constitucional ecuatoriano?",
+                clue: "Vincula la inversión pública con el financiamiento de infraestructura básica para la dignidad humana.",
+                answer: "La inversión pública no es un gasto gubernamental discrecional, sino un instrumento obligatorio de redistribución de riqueza que genera 'ahorro social'. Su objetivo primordial es consolidar infraestructura de salud, educación, vivienda y seguridad social, reduciendo la brecha estructural de desigualdad.",
+                law: "Políticas Sociales e Inclusión, Arts. 340 y ss. (CRE)."
             },
             {
-                category: "Límites en Tratados Internacionales",
-                question: "¿Por qué el Artículo 422 de la Constitución de 2008 prohíbe ceder soberanía a tribunales de arbitraje privado?",
-                clue: "Analiza el rol de organismos como el CIADI de defensa corporativa frente a los derechos soberanos.",
-                answer: "El Art. 422 de la CRE prohíbe celebrar tratados donde el Ecuador ceda su jurisdicción a tribunales de arbitraje privado o instancias internacionales en conflictos comerciales o de inversión, buscando evitar que los intereses de transnacionales vulneren los derechos constitucionales.",
-                law: "Prohibición de Cesión de Jurisdicción - Art. 422 CRE."
+                category: "Constitución de 1998 vs. 2008 (Recordatorio Normativo)",
+                question: "¿Qué ocurrió con la Constitución de 1998 y la de 2008?",
+                clue: "Analiza la Disposición Derogatoria Única que determinó el Pleno de Montecristi.",
+                answer: "La Constitución de 1998 (de corte neoliberal) fue derogada íntegra y formalmente por la Constitución de 2008, que introdujo el paradigma garantista del Sumak Kawsay. Todo litigio y argumento sobre derechos constitucionales en el Ecuador actual debe sustentarse únicamente en la Carta Magna vigente del 2008.",
+                law: "Disposición Derogatoria Única de la Constitución del 2008."
             }
         ];
 
-        // VARIABLES DE ESTADO INTEGRAL
-        let activeRole = 'teacher'; 
-        let activeResource = 'r1';  
+        // ESTADO GLOBAL DE LA INTERACCIÓN SINCRÓNICA
+        let currentMode = 'teacher'; 
+        let currentStudentTab = 'poll'; 
         let currentCardIndex = 0;
         let isCardFlipped = false;
         let masteredCards = new Set();
+        // Definición de tu URL en GitHub Pages de forma predeterminada
         let classUrl = "https://carloseduardochica-art.github.io/clase-contexto/";
 
-        // Datos del Sondeo
+        // Base de Datos en Memoria
         let syncPollData = {
             votesA: 0,
             votesB: 0,
@@ -574,43 +556,22 @@
             concepts: {}
         };
 
-        // Simulador de Clase en Vivo
+        // Simulación Sincrónica
         let simulationInterval = null;
         let isSimulating = false;
         let simCount = 0;
 
-        // INICIALIZACIÓN COMPLETA
+        // INICIALIZACIÓN
         window.onload = function() {
             renderCard();
             updateTeacherScreen();
             loadMockInitialData();
+            
+            // Forzar la inicialización automática del QR con tu URL de GitHub Pages
             applyCustomUrl();
         }
 
-        // FUNCIÓN DINÁMICA PARA OCULTAR O MOSTRAR EL SIDEBAR LATERAL
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const toggleIcon = document.getElementById('sidebar-toggle-icon');
-            const toggleText = document.getElementById('sidebar-toggle-text');
-            
-            if (sidebar.classList.contains('lg:w-72')) {
-                // Modo Colapsado
-                sidebar.classList.remove('lg:w-72', 'w-full');
-                sidebar.classList.add('lg:w-0', 'w-0', 'overflow-hidden', 'border-r-0');
-                if (toggleIcon) toggleIcon.innerText = '➡️';
-                if (toggleText) toggleText.innerText = 'Mostrar Menú';
-                showToast("Menú lateral contraído (Pantalla Completa)", "👁️");
-            } else {
-                // Modo Expandido
-                sidebar.classList.add('lg:w-72', 'w-full');
-                sidebar.classList.remove('lg:w-0', 'w-0', 'overflow-hidden', 'border-r-0');
-                if (toggleIcon) toggleIcon.innerText = '⬅️';
-                if (toggleText) toggleText.innerText = 'Ocultar Menú';
-                showToast("Menú lateral expandido", "👁️");
-            }
-        }
-
-        // CAMBIAR ENLACE EN CALIENTE (Dina-QR)
+        // APLICAR URL PERSONALIZADA (QR Dinámico)
         function applyCustomUrl() {
             const inputVal = document.getElementById('input-class-url').value.trim();
             if (!inputVal) {
@@ -619,7 +580,7 @@
             }
             classUrl = inputVal;
             
-            // Actualizar interfaz
+            // Actualizar textos en la interfaz
             document.getElementById('display-class-url').innerText = classUrl;
             
             // Regenerar código QR mediante API
@@ -627,89 +588,71 @@
             const qrImg = document.getElementById('qr-image');
             qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodedUrl}&color=1E2022`;
             
-            showToast("QR de Proyección Sincronizado", "🚀");
+            showToast("Código QR y enlace de la clase sincronizados con éxito", "🚀");
         }
 
-        // CONTROLAR FALLA DEL QR API
+        // CONTROLAR FALLA DE CONEXIÓN DEL QR
         function handleQrError() {
-            showToast("Falla de API del QR. Verifique conexión a Internet.", "⚠️");
+            showToast("Falla de red al cargar el QR de la API. Mostrando QR de respaldo.", "⚠️");
         }
 
-        // CAMBIAR DE ROL (Profesor / Estudiante)
-        function setRole(role) {
-            activeRole = role;
-            
-            // Cambiar clases de botones de Rol
-            const btnTeacher = document.getElementById('btn-role-teacher');
-            const btnStudent = document.getElementById('btn-role-student');
-            
-            if (role === 'teacher') {
-                btnTeacher.className = "py-2 text-[11px] font-black rounded-lg transition-all duration-200 bg-ucacue-red text-white shadow-md";
-                btnStudent.className = "py-2 text-[11px] font-black rounded-lg transition-all duration-200 text-slate-500 hover:text-slate-800";
-                document.getElementById('role-badge').innerText = "Rol: Profesor (Proyección)";
+        // CAMBIAR DE ROL (VISTA PROFESOR / ESTUDIANTE)
+        function switchMode(mode) {
+            currentMode = mode;
+            const btnStudent = document.getElementById('btn-mode-student');
+            const btnTeacher = document.getElementById('btn-mode-teacher');
+            const secStudent = document.getElementById('section-student');
+            const secTeacher = document.getElementById('section-teacher');
+
+            if (mode === 'student') {
+                btnStudent.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all duration-200 bg-white text-ucacue-red shadow-sm border border-gray-200/50";
+                btnTeacher.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all duration-200 text-gray-600 hover:text-gray-900";
+                secStudent.classList.remove('hidden');
+                secTeacher.classList.add('hidden');
             } else {
-                btnStudent.className = "py-2 text-[11px] font-black rounded-lg transition-all duration-200 bg-ucacue-red text-white shadow-md";
-                btnTeacher.className = "py-2 text-[11px] font-black rounded-lg transition-all duration-200 text-slate-500 hover:text-slate-800";
-                document.getElementById('role-badge').innerText = "Rol: Estudiante (Dispositivo)";
+                btnTeacher.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all duration-200 bg-white text-ucacue-red shadow-sm border border-gray-200/50";
+                btnStudent.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all duration-200 text-gray-600 hover:text-gray-900";
+                secTeacher.classList.remove('hidden');
+                secStudent.classList.add('hidden');
+                renderWordCloud(); 
             }
-
-            updateLayout();
-            showToast(`Cambiado a Vista de ${role === 'teacher' ? 'Profesor' : 'Estudiante'}`, "👤");
+            showToast(`Cambio a Vista del ${mode === 'student' ? 'Estudiante' : 'Profesor'}`, "🔄");
         }
 
-        // CAMBIAR RECURSO (Sondeo R1 / Tarjetas R2)
-        function setResource(resource) {
-            activeResource = resource;
-            
-            // Cambiar diseño activo de botones del Sidebar (Modo Claro)
-            const navR1 = document.getElementById('nav-r1');
-            const navR2 = document.getElementById('nav-r2');
+        // PESTAÑAS DE VISTA ESTUDIANTE
+        function switchStudentTab(tab) {
+            currentStudentTab = tab;
+            const tabPoll = document.getElementById('tab-student-poll');
+            const tabCards = document.getElementById('tab-student-cards');
+            const contentPoll = document.getElementById('tab-content-poll');
+            const contentCards = document.getElementById('tab-content-cards');
 
-            if (resource === 'r1') {
-                navR1.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 bg-slate-50 border-l-4 border-ucacue-red text-ucacue-red border border-slate-200 shadow-sm font-black";
-                navR2.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 hover:bg-slate-50 border-l-4 border-transparent text-slate-500 hover:text-slate-800 border border-transparent";
-                document.getElementById('header-title').innerText = "Recurso 1: Sondeo Diagnóstico y Nube de Conceptos";
+            if (tab === 'poll') {
+                tabPoll.className = "flex-grow md:flex-none px-4 py-2 rounded-xl text-xs font-bold bg-white text-gray-800 shadow-sm";
+                tabCards.className = "flex-grow md:flex-none px-4 py-2 rounded-xl text-xs font-bold text-gray-600 hover:text-gray-900";
+                contentPoll.classList.remove('hidden');
+                contentCards.classList.add('hidden');
             } else {
-                navR2.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 bg-slate-50 border-l-4 border-ucacue-red text-ucacue-red border border-slate-200 shadow-sm font-black";
-                navR1.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 hover:bg-slate-50 border-l-4 border-transparent text-slate-500 hover:text-slate-800 border border-transparent";
-                document.getElementById('header-title').innerText = "Recurso 2: Tarjetas de Apoyo y Refuerzo Cognitivo";
-            }
-
-            updateLayout();
-            showToast(`Mostrando ${resource === 'r1' ? 'Recurso 1: Sondeo' : 'Recurso 2: Tarjetas'}`, "📋");
-        }
-
-        // ACTUALIZACIÓN DE LAYOUT DINÁMICO
-        function updateLayout() {
-            // Contenedores
-            const viewTeacherR1 = document.getElementById('view-teacher-r1');
-            const viewTeacherR2 = document.getElementById('view-teacher-r2');
-            const viewStudentR1 = document.getElementById('view-student-r1');
-            const viewStudentR2 = document.getElementById('view-student-r2');
-
-            // Esconder todos
-            viewTeacherR1.classList.add('hidden');
-            viewTeacherR2.classList.add('hidden');
-            viewStudentR1.classList.add('hidden');
-            viewStudentR2.classList.add('hidden');
-
-            // Mostrar el contenedor correcto basado en Rol y Recurso activo
-            if (activeRole === 'teacher' && activeResource === 'r1') {
-                viewTeacherR1.classList.remove('hidden');
-            } else if (activeRole === 'teacher' && activeResource === 'r2') {
-                viewTeacherR2.classList.remove('hidden');
-                renderCard();
-            } else if (activeRole === 'student' && activeResource === 'r1') {
-                viewStudentR1.classList.remove('hidden');
-            } else if (activeRole === 'student' && activeResource === 'r2') {
-                viewStudentR2.classList.remove('hidden');
-                renderCard();
+                tabCards.className = "flex-grow md:flex-none px-4 py-2 rounded-xl text-xs font-bold bg-white text-gray-800 shadow-sm";
+                tabPoll.className = "flex-grow md:flex-none px-4 py-2 rounded-xl text-xs font-bold text-gray-600 hover:text-gray-900";
+                contentCards.classList.remove('hidden');
+                contentPoll.classList.add('hidden');
+                renderCard(); 
             }
         }
 
-        // ================= RECURSO 1: LÓGICA DE CONTROL SINCRE DE AULA =================
+        // COPIAR ENLACE DINÁMICO AL PORTAPAPELES
+        function copyAccessLink() {
+            const tempInput = document.createElement("input");
+            tempInput.value = classUrl;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            showToast("Enlace de aula copiado al portapapeles", "📋");
+        }
 
-        // Enviar Voto desde el Estudiante
+        // ENVIAR VOTO INDIVIDUAL DESDE LA VISTA ESTUDIANTE
         function submitStudentVote() {
             const selectedOpt = document.querySelector('input[name="student-vote"]:checked');
             if (!selectedOpt) {
@@ -722,18 +665,24 @@
             else syncPollData.votesB++;
 
             syncPollData.totalVotes++;
-            addFeedEvent("Estudiante", `Votó por la Postura ${value}`);
+            
+            addFeedEvent("Estudiante Individual", `Votó por la Postura ${value}`);
             updateTeacherScreen();
-            showToast("Voto procesado y enviado con éxito", "🗳️");
+            showToast("Voto sincrónico procesado en la Pantalla Central", "🗳️");
         }
 
-        // Enviar Concepto desde el Estudiante
+        // ENVIAR CONCEPTO A LA NUBE DESDE LA VISTA ESTUDIANTE
         function submitStudentConcept() {
             const input = document.getElementById('student-concept-input');
             const concept = input.value.trim().toUpperCase();
 
             if (!concept) {
                 showToast("Por favor ingresa un concepto válido", "⚠️");
+                return;
+            }
+
+            if (concept.length > 18) {
+                showToast("Intenta ingresar un concepto más corto (máx 18 letras)", "⚠️");
                 return;
             }
 
@@ -744,20 +693,21 @@
             }
 
             input.value = '';
-            addFeedEvent("Estudiante", `Envió concepto a la nube: "${concept}"`);
+            addFeedEvent("Estudiante Individual", `Envió concepto a la nube: "${concept}"`);
             updateTeacherScreen();
-            showToast(`Concepto "${concept}" enviado al aula`, "✨");
+            showToast(`Concepto "${concept}" enviado a la Proyección Central`, "✨");
         }
 
-        // Agregar fila al historial
+        // AGREGAR EVENTO AL FEED INTERACTIVO
         function addFeedEvent(user, message) {
             const feed = document.getElementById('activity-feed');
+            
             if (feed.querySelector('.italic')) {
                 feed.innerHTML = '';
             }
 
             const p = document.createElement('p');
-            p.className = 'py-1.5 border-b border-gray-100 flex justify-between items-center animate-slide-up';
+            p.className = 'py-1 border-b border-gray-100 flex justify-between items-center animate-slide-up';
             p.innerHTML = `
                 <span><strong>${user}:</strong> ${message}</span>
                 <span class="text-[9px] bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded font-mono">${new Date().toLocaleTimeString()}</span>
@@ -765,25 +715,24 @@
             feed.insertBefore(p, feed.firstChild);
         }
 
-        // Actualizar datos del Profesor
+        // ACTUALIZAR PROYECCIÓN CENTRAL
         function updateTeacherScreen() {
             const total = syncPollData.totalVotes;
             const percentA = total > 0 ? Math.round((syncPollData.votesA / total) * 100) : 0;
             const percentB = total > 0 ? Math.round((syncPollData.votesB / total) * 100) : 0;
 
-            document.getElementById('bar-a-label').innerText = `${percentA}% (${syncPollData.votesA} Gasto Social)`;
+            document.getElementById('bar-a-label').innerText = `${percentA}% (${syncPollData.votesA} votos)`;
             document.getElementById('bar-a-fill').style.width = `${percentA}%`;
 
-            document.getElementById('bar-b-label').innerText = `${percentB}% (${syncPollData.votesB} Deuda Externa)`;
+            document.getElementById('bar-b-label').innerText = `${percentB}% (${syncPollData.votesB} votos)`;
             document.getElementById('bar-b-fill').style.width = `${percentB}%`;
 
             document.getElementById('p-voters-count').innerText = `Alumnos: ${total}`;
-            document.getElementById('display-voters').innerText = `Alumnos: ${total}`;
 
             renderWordCloud();
         }
 
-        // Dibujar Word Cloud
+        // DIBUJAR NUBE DE PALABRAS DINÁMICAMENTE
         function renderWordCloud() {
             const container = document.getElementById('word-cloud-container');
             container.innerHTML = '';
@@ -800,6 +749,7 @@
 
             words.forEach(word => {
                 const count = syncPollData.concepts[word];
+                
                 let sizeClass = "text-xs";
                 let colorClass = "text-slate-400";
                 let weightClass = "font-medium";
@@ -819,30 +769,34 @@
                 }
 
                 const span = document.createElement('span');
-                span.className = `${sizeClass} ${colorClass} ${weightClass} transition-all duration-300 transform hover:scale-110 tracking-wide cursor-pointer uppercase select-none`;
+                span.className = `${sizeClass} ${colorClass} ${weightClass} transition-all duration-300 transform hover:scale-115 hover:text-white tracking-wide cursor-pointer uppercase select-none`;
                 span.innerText = `${word} (${count})`;
+                span.onclick = () => showToast(`Concepto "${word}" enviado ${count} veces en el aula`, "🔍");
+                
                 container.appendChild(span);
             });
         }
 
-        // Cargar datos demo de Clase 2
+        // CARGAR DATOS INICIALES DEMOSTRATIVOS
         function loadMockInitialData() {
-            syncPollData.votesA = 16;
-            syncPollData.votesB = 4;
+            syncPollData.votesA = 14;
+            syncPollData.votesB = 6;
             syncPollData.totalVotes = 20;
 
-            syncPollData.concepts = {
-                "Soberanía": 5,
-                "Dependencia": 4,
-                "CIADI": 3,
-                "Colonialismo": 2,
-                "Art. 422": 2,
-                "Integración": 1
+            const initialWords = {
+                "SUMAK KAWSAY": 4,
+                "DIGNIDAD": 3,
+                "ARMONIA": 2,
+                "SOBERANIA": 2,
+                "REDISTRIBUCION": 1,
+                "EMPLEO": 1
             };
+
+            syncPollData.concepts = initialWords;
             updateTeacherScreen();
         }
 
-        // Toggle Simulador
+        // SIMULADOR DE CLASE EN TIEMPO REAL
         function toggleSimulation() {
             const btnSim = document.getElementById('btn-sim-start');
             const simText = document.getElementById('sim-text');
@@ -851,14 +805,16 @@
             if (isSimulating) {
                 clearInterval(simulationInterval);
                 isSimulating = false;
-                simText.innerText = "Iniciar Clase";
+                btnSim.className = "flex-grow sm:flex-none px-4 py-2.5 bg-ucacue-gold hover:bg-ucacue-goldDark text-gray-900 font-black text-xs rounded-xl transition-all duration-150 shadow-md flex items-center justify-center gap-2";
+                simText.innerText = "Continuar Simulación";
                 simIcon.innerText = "▶";
                 showToast("Simulación de aula pausada", "⏸️");
             } else {
                 isSimulating = true;
-                simText.innerText = "Pausar Clase";
+                btnSim.className = "flex-grow sm:flex-none px-4 py-2.5 bg-red-800 hover:bg-red-900 text-white font-black text-xs rounded-xl transition-all duration-150 shadow-md flex items-center justify-center gap-2";
+                simText.innerText = "Pausar Simulación";
                 simIcon.innerText = "⏸️";
-                showToast("Estudiantes ingresando al foro en vivo", "📡");
+                showToast("Flujo de alumnos simulados iniciado", "📡");
 
                 simulationInterval = setInterval(() => {
                     simulateStudentInput();
@@ -866,37 +822,38 @@
             }
         }
 
-        // Entrada simulada
+        // GENERAR ENTRADAS DE ALUMNOS SIMULADOS
         function simulateStudentInput() {
-            const names = ["Estudiante Cuenca", "Estudiante Azogues", "Estudiante Cañar", "Estudiante Troncal", "Estudiante Gualaceo"];
-            const selectedName = names[Math.floor(Math.random() * names.length)];
-
-            const vote = Math.random() < 0.75 ? "A" : "B";
-            if (vote === 'A') syncPollData.votesA++;
+            const studentsNames = ["Estudiante Cuenca", "Estudiante Azogues", "Estudiante Cañar", "Estudiante Troncal", "Estudiante Gualaceo"];
+            const randomName = studentsNames[Math.floor(Math.random() * studentsNames.length)];
+            
+            const randomVote = Math.random() < 0.7 ? "A" : "B";
+            if (randomVote === 'A') syncPollData.votesA++;
             else syncPollData.votesB++;
+            
             syncPollData.totalVotes++;
 
-            const listConcepts = ["CIADI", "DEPENDENCIA", "SOBERANIA", "GLOBALIZACION", "COLONIALISMO", "ART. 422", "INTEGRACION", "MONTECRISTI", "CORTE", "DEUDA"];
-            const selectedConcept = listConcepts[Math.floor(Math.random() * listConcepts.length)];
+            const studentConcepts = ["DERECHOS", "JUSTICIA", "IGUALDAD", "SUMAK KAWSAY", "SOBERANIA", "MATRIZ", "DIGNIDAD", "ARMONIA", "EMPLEO", "INVERSION", "BIEN COMUN", "MONTECRISTI", "CORTE", "REGIMEN"];
+            const randomConcept = studentConcepts[Math.floor(Math.random() * studentConcepts.length)];
 
-            if (syncPollData.concepts[selectedConcept]) {
-                syncPollData.concepts[selectedConcept]++;
+            if (syncPollData.concepts[randomConcept]) {
+                syncPollData.concepts[randomConcept]++;
             } else {
-                syncPollData.concepts[selectedConcept] = 1;
+                syncPollData.concepts[randomConcept] = 1;
             }
 
-            addFeedEvent(selectedName, `Votó por la Postura ${vote} y envió "${selectedConcept}"`);
+            addFeedEvent(randomName, `Votó por Postura ${randomVote} y envió "${randomConcept}"`);
             updateTeacherScreen();
-
+            
             simCount++;
             if (simCount >= 50) {
-                toggleSimulation();
-                showToast("Clase sincrónica y foro completado", "🎓");
+                toggleSimulation(); 
+                showToast("Simulación de 50 alumnos completada", "🎓");
                 simCount = 0;
             }
         }
 
-        // Reset
+        // REINICIAR CONSOLA SINCRE
         function resetAllSincro() {
             if (isSimulating) {
                 toggleSimulation();
@@ -907,63 +864,42 @@
                 totalVotes: 0,
                 concepts: {}
             };
-            document.getElementById('activity-feed').innerHTML = '<p class="italic text-gray-400">El feed se poblará automáticamente al iniciar la simulación...</p>';
+            document.getElementById('activity-feed').innerHTML = '<p class="italic text-gray-400">El feed se poblará automáticamente al ingresar votos o iniciar la simulación...</p>';
             updateTeacherScreen();
-            showToast("Datos de aula reiniciados", "🗑️");
+            showToast("Consola sincrónica de aula reiniciada", "🗑️");
         }
 
 
-        // ================= RECURSO 2: LÓGICA DE CONTROL DE LAS FLASHCARDS =================
+        // ================= LOGICA RECURSO 2: TARJETAS DE ESTUDIO =================
 
-        // Sincroniza la renderización de la tarjeta en ambas vistas (Profesor y Estudiante)
         function renderCard() {
             const card = flashcardsData[currentCardIndex];
+            const cardElement = document.getElementById('flashcard');
             
-            // Volver la tarjeta a la cara frontal antes de cambiar datos
-            const flashcard = document.getElementById('flashcard');
-            const projFlashcard = document.getElementById('proj-flashcard');
-            
-            flashcard.classList.remove('rotate-y-180');
-            projFlashcard.classList.remove('rotate-y-180');
+            cardElement.classList.remove('rotate-y-180');
             isCardFlipped = false;
 
-            // Esperar animación para colocar datos
             setTimeout(() => {
-                // Vista Estudiante
                 document.getElementById('card-front-category').innerText = card.category;
                 document.getElementById('card-front-question').innerText = card.question;
                 document.getElementById('card-front-clue').innerText = card.clue;
                 document.getElementById('card-back-answer').innerText = card.answer;
                 document.getElementById('card-back-law').innerText = card.law;
                 document.getElementById('card-indicator').innerText = `${currentCardIndex + 1} / ${flashcardsData.length}`;
-
-                // Vista Profesor (Proyección Central)
-                document.getElementById('proj-front-category').innerText = card.category;
-                document.getElementById('proj-front-question').innerText = card.question;
-                document.getElementById('proj-front-clue').innerText = card.clue;
-                document.getElementById('proj-back-answer').innerText = card.answer;
-                document.getElementById('proj-back-law').innerText = card.law;
-                document.getElementById('proj-card-indicator').innerText = `${currentCardIndex + 1} / ${flashcardsData.length}`;
             }, 150);
         }
 
-        // Volteo de la tarjeta interactiva
         function flipCard() {
-            const flashcard = document.getElementById('flashcard');
-            const projFlashcard = document.getElementById('proj-flashcard');
-            
+            const cardElement = document.getElementById('flashcard');
             if (isCardFlipped) {
-                flashcard.classList.remove('rotate-y-180');
-                projFlashcard.classList.remove('rotate-y-180');
+                cardElement.classList.remove('rotate-y-180');
                 isCardFlipped = false;
             } else {
-                flashcard.classList.add('rotate-y-180');
-                projFlashcard.classList.add('rotate-y-180');
+                cardElement.classList.add('rotate-y-180');
                 isCardFlipped = true;
             }
         }
 
-        // Cambio de tarjeta (Navegación)
         function changeCard(direction) {
             currentCardIndex += direction;
             if (currentCardIndex >= flashcardsData.length) {
@@ -974,14 +910,13 @@
             renderCard();
         }
 
-        // Marcaje de autoevaluación del alumno
         function markCard(mastered) {
             if (mastered) {
                 masteredCards.add(currentCardIndex);
-                showToast("¡Excelente! Has dominado esta doctrina constitucional", "🏆");
+                showToast("¡Excelente! Has dominado este contenido constitucional", "🏆");
             } else {
                 masteredCards.delete(currentCardIndex);
-                showToast("Tarjeta marcada para revisión posterior", "📚");
+                showToast("Tarjeta marcada para repaso", "📚");
             }
             updateStudentStats();
             
@@ -990,17 +925,17 @@
             }, 800);
         }
 
-        // Actualizar Progreso del Estudiante
         function updateStudentStats() {
             const completed = masteredCards.size;
             const total = flashcardsData.length;
             const percentage = Math.round((completed / total) * 100);
 
+            // Actualizar interfaz estudiante
             document.querySelectorAll('#student-stat-completed').forEach(el => el.innerText = `${completed} / ${total}`);
             document.getElementById('student-progress-bar').style.width = `${percentage}%`;
         }
 
-        // TOAST NOTIFICATIONS
+        // ALERTA DE TOAST PERSONALIZADA
         function showToast(message, icon = "💡") {
             const toast = document.getElementById('toast');
             const toastText = document.getElementById('toast-text');
