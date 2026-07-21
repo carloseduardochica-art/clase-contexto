@@ -54,78 +54,86 @@
 </head>
 <body class="bg-[#F8F9FA] text-gray-900 font-sans min-h-screen flex flex-col lg:flex-row antialiased">
 
-    <!-- ================= PANEL LATERAL IZQUIERDO (SLIDER DE CONTROL) ================= -->
-    <aside class="w-full lg:w-72 bg-ucacue-grayDark text-white flex flex-col shrink-0 border-r border-gray-800 shadow-2xl z-40 lg:sticky lg:top-0 lg:h-screen">
+    <!-- ================= PANEL LATERAL CLARO (SLIDER DE CONTROL OCULTABLE) ================= -->
+    <aside id="sidebar" class="w-full lg:w-72 bg-white text-slate-800 flex flex-col shrink-0 border-r border-slate-200 shadow-xl z-40 lg:sticky lg:top-0 lg:h-screen transition-all duration-300 ease-in-out overflow-y-auto">
         
         <!-- Identidad UCACUE -->
-        <div class="p-6 border-b border-gray-800 bg-black/20 flex items-center gap-3">
+        <div class="p-6 border-b border-slate-200 bg-slate-50/55 flex items-center gap-3">
             <div class="w-10 h-10 rounded-full bg-ucacue-red flex items-center justify-center text-white font-extrabold text-base border-2 border-ucacue-gold shadow-md shrink-0">
                 UC
             </div>
             <div>
-                <h1 class="text-sm font-black text-white tracking-tight leading-none">U. Católica de Cuenca</h1>
-                <p class="text-[10px] text-gray-400 font-bold mt-1">Facultad de Ciencias Sociales</p>
+                <h1 class="text-sm font-black text-slate-800 tracking-tight leading-none">U. Católica de Cuenca</h1>
+                <p class="text-[10px] text-slate-500 font-bold mt-1">Facultad de Ciencias Sociales</p>
             </div>
         </div>
 
         <!-- CONFIGURADOR DE ROL (¿Quién está usando la app?) -->
-        <div class="p-5 border-b border-gray-800 space-y-3">
-            <span class="text-[9px] font-black text-gray-500 uppercase tracking-widest block">1. Seleccionar tu Rol</span>
-            <div class="grid grid-cols-2 gap-2 bg-black/40 p-1 rounded-xl border border-gray-800/80">
+        <div class="p-5 border-b border-slate-200 space-y-3 bg-white">
+            <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest block">1. Seleccionar tu Rol</span>
+            <div class="grid grid-cols-2 gap-2 bg-slate-100 p-1 rounded-xl border border-slate-200">
                 <button id="btn-role-teacher" onclick="setRole('teacher')" class="py-2 text-[11px] font-black rounded-lg transition-all duration-200 bg-ucacue-red text-white shadow-md">
                     Profesor
                 </button>
-                <button id="btn-role-student" onclick="setRole('student')" class="py-2 text-[11px] font-black rounded-lg transition-all duration-200 text-gray-400 hover:text-white">
+                <button id="btn-role-student" onclick="setRole('student')" class="py-2 text-[11px] font-black rounded-lg transition-all duration-200 text-slate-500 hover:text-slate-800">
                     Estudiante
                 </button>
             </div>
         </div>
 
-        <!-- SELECTOR DE RECURSOS PEDAGÓGICOS (Navegación Interactiva) -->
-        <div class="p-5 flex-grow space-y-4">
-            <span class="text-[9px] font-black text-gray-500 uppercase tracking-widest block">2. Seleccionar Recurso</span>
+        <!-- SELECTOR DE RECURSOS PEDAGÓGICOS (Navegación Interactiva Clara) -->
+        <div class="p-5 flex-grow space-y-4 bg-white">
+            <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest block">2. Seleccionar Recurso</span>
             
             <nav class="space-y-2">
                 <!-- Botón Recurso 1 -->
-                <button id="nav-r1" onclick="setResource('r1')" class="w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 bg-ucacue-grayMedium border-l-4 border-ucacue-gold text-white">
+                <button id="nav-r1" onclick="setResource('r1')" class="w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 bg-slate-50 border-l-4 border-ucacue-red text-ucacue-red border border-slate-200 shadow-sm font-black">
                     <span class="text-lg">📊</span>
                     <div>
-                        <span class="block text-xs font-black tracking-tight leading-none text-white">Recurso 1</span>
-                        <span class="text-[10px] text-gray-400 mt-1 block">Sondeo y Nube en Vivo</span>
+                        <span class="block text-xs font-black tracking-tight leading-none">Recurso 1</span>
+                        <span class="text-[10px] text-slate-500 mt-1 block">Sondeo y Nube en Vivo</span>
                     </div>
                 </button>
 
                 <!-- Botón Recurso 2 -->
-                <button id="nav-r2" onclick="setResource('r2')" class="w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 hover:bg-ucacue-grayMedium/50 border-l-4 border-transparent text-gray-400 hover:text-white">
+                <button id="nav-r2" onclick="setResource('r2')" class="w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 hover:bg-slate-50 border-l-4 border-transparent text-slate-500 hover:text-slate-800 border border-transparent">
                     <span class="text-lg">📇</span>
                     <div>
-                        <span class="block text-xs font-black tracking-tight leading-none text-gray-200">Recurso 2</span>
-                        <span class="text-[10px] text-gray-500 mt-1 block">Tarjetas de Aprendizaje</span>
+                        <span class="block text-xs font-black tracking-tight leading-none">Recurso 2</span>
+                        <span class="text-[10px] text-slate-400 mt-1 block">Tarjetas de Aprendizaje</span>
                     </div>
                 </button>
             </nav>
         </div>
 
         <!-- Estado de Sincronización al pie -->
-        <div class="p-5 border-t border-gray-800 bg-black/10 space-y-2 text-xs">
-            <div class="flex items-center justify-between text-[11px] font-bold text-gray-400">
+        <div class="p-5 border-t border-slate-200 bg-slate-50 space-y-2 text-xs">
+            <div class="flex items-center justify-between text-[11px] font-bold text-slate-500">
                 <span class="flex items-center gap-1.5">
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Sincronizado
                 </span>
-                <span id="display-voters" class="bg-gray-800 px-2 py-0.5 rounded text-white font-mono text-[10px]">Alumnos: 20</span>
+                <span id="display-voters" class="bg-slate-200 px-2 py-0.5 rounded text-slate-800 font-mono text-[10px]">Alumnos: 20</span>
             </div>
-            <p class="text-[9px] text-gray-500 leading-normal">Clase 2 Bloque 2: Contexto Regional y Global</p>
+            <p class="text-[9px] text-slate-400 leading-normal">Clase 2 Bloque 2: Contexto Regional y Global</p>
         </div>
     </aside>
 
     <!-- ================= ÁREA DE CONTENIDO PRINCIPAL ================= -->
-    <div class="flex-grow flex flex-col min-h-screen overflow-y-auto">
+    <div id="main-content" class="flex-grow flex flex-col min-h-screen overflow-y-auto transition-all duration-300">
 
         <!-- CABECERA INSTITUCIONAL HORIZONTAL (Para proyección central) -->
         <header class="bg-white border-b border-gray-200 px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0">
-            <div>
-                <span class="text-[10px] font-black text-ucacue-red uppercase tracking-widest block">Carrera de Derecho</span>
-                <h2 id="header-title" class="text-lg font-black text-gray-800 tracking-tight mt-0.5">Recurso 1: Sondeo Diagnóstico y Nube de Conceptos</h2>
+            <div class="flex items-center gap-3">
+                <!-- BOTÓN PARA CONTRAER/OCULTAR EL MENÚ LATERAL -->
+                <button onclick="toggleSidebar()" class="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 transition border border-slate-200 rounded-xl flex items-center gap-2 shadow-sm font-bold text-xs" title="Ocultar o Mostrar Menú">
+                    <span id="sidebar-toggle-icon">⬅️</span>
+                    <span id="sidebar-toggle-text" class="hidden sm:inline">Ocultar Menú</span>
+                </button>
+                
+                <div>
+                    <span class="text-[10px] font-black text-ucacue-red uppercase tracking-widest block">Carrera de Derecho</span>
+                    <h2 id="header-title" class="text-sm sm:text-base font-black text-gray-800 tracking-tight mt-0.5">Recurso 1: Sondeo Diagnóstico y Nube de Conceptos</h2>
+                </div>
             </div>
             <div class="flex items-center gap-3">
                 <span class="text-xs bg-gray-100 border border-gray-200 text-gray-600 font-bold px-3 py-1.5 rounded-full" id="role-badge">
@@ -166,7 +174,7 @@
                         <span class="text-xl">⚙️</span>
                         <div>
                             <h3 class="text-sm font-black text-gray-800 uppercase tracking-wide">Dirección URL del Aula (Sincronización de QR)</h3>
-                            <p class="text-[11px] text-gray-500 mt-0.5">El sistema apunta a tu GitHub Pages. Edítalo aquí para que el código QR apunte a tu dirección real.</p>
+                            <p class="text-[11px] text-gray-500 mt-0.5">El sistema apunta a tu GitHub Pages de forma predeterminada. Edítalo aquí para que el código QR y enlaces de copia apunten a tu dirección real.</p>
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-3">
@@ -180,7 +188,7 @@
                 <!-- SECCIÓN DE GRÁFICOS Y QR -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     <!-- QR de Acceso -->
-                    <div class="lg:col-span-4 bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center flex flex-col items-center justify-center space-y-5">
+                    <div class="lg:col-span-4 bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center flex flex-col items-center justify-center space-y-5 animate-fade-in">
                         <div>
                             <span class="text-[9px] font-black text-gray-400 uppercase tracking-widest block">Escanea para Entrar</span>
                             <h4 class="text-base font-black text-gray-800 mt-1">Únete desde tu Celular</h4>
@@ -269,7 +277,7 @@
                             <div class="absolute inset-0 backface-hidden bg-white p-8 flex flex-col justify-between rounded-3xl">
                                 <div class="flex justify-between items-start">
                                     <span class="bg-red-50 text-ucacue-red text-xs font-black px-3.5 py-1 rounded-full uppercase border border-red-100" id="proj-front-category">Colonialismo & Dependencia</span>
-                                    <span class="text-xs text-gray-400 font-bold uppercase">Clic para Girar y Revelar Respuesta Doctrinal</span>
+                                    <span class="text-xs text-slate-400 font-bold uppercase tracking-tight bg-slate-100 px-3 py-1 rounded-full border border-slate-200 animate-pulse">Clic para Girar</span>
                                 </div>
                                 <div class="my-auto space-y-5">
                                     <h4 class="text-2xl font-black text-gray-800 leading-tight" id="proj-front-question">
@@ -529,9 +537,9 @@
             },
             {
                 category: "Integración Regional",
-                question: "¿Qué principios rigen la Integración Regional y las Relaciones Internacionales de Montecristi (Art. 416)?",
+                question: "What principles govern Regional Integration and International Relations in Montecristi (Art. 416)?",
                 clue: "Busca la defensa de la soberanía, paz, autodeterminación de los pueblos e integración regional.",
-                answer: "El Art. 416 de la Constitución consagra que el Ecuador busca la integración prioritaria de América Latina y el Caribe, el rechazo a toda forma de neocolonialismo o hegemonía extranjera, la paz y la solución jurídica internacional de controversias.",
+                answer: "El Art. 416 de la Constitución consagra que el Ecuador busca la integración prioritaria de América Latina y el Caribe, el fomento de la paz, la autodeterminación de los pueblos y la prohibición expresa de cualquier forma de hegemonía transnacional o neocolonialismo.",
                 law: "Principio de Relaciones Internacionales - Art. 416 CRE."
             },
             {
@@ -551,8 +559,8 @@
         ];
 
         // VARIABLES DE ESTADO INTEGRAL
-        let activeRole = 'teacher'; // 'teacher' o 'student'
-        let activeResource = 'r1';  // 'r1' o 'r2'
+        let activeRole = 'teacher'; 
+        let activeResource = 'r1';  
         let currentCardIndex = 0;
         let isCardFlipped = false;
         let masteredCards = new Set();
@@ -579,6 +587,29 @@
             applyCustomUrl();
         }
 
+        // FUNCIÓN DINÁMICA PARA OCULTAR O MOSTRAR EL SIDEBAR LATERAL
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const toggleIcon = document.getElementById('sidebar-toggle-icon');
+            const toggleText = document.getElementById('sidebar-toggle-text');
+            
+            if (sidebar.classList.contains('lg:w-72')) {
+                // Modo Colapsado
+                sidebar.classList.remove('lg:w-72', 'w-full');
+                sidebar.classList.add('lg:w-0', 'w-0', 'overflow-hidden', 'border-r-0');
+                if (toggleIcon) toggleIcon.innerText = '➡️';
+                if (toggleText) toggleText.innerText = 'Mostrar Menú';
+                showToast("Menú lateral contraído (Pantalla Completa)", "👁️");
+            } else {
+                // Modo Expandido
+                sidebar.classList.add('lg:w-72', 'w-full');
+                sidebar.classList.remove('lg:w-0', 'w-0', 'overflow-hidden', 'border-r-0');
+                if (toggleIcon) toggleIcon.innerText = '⬅️';
+                if (toggleText) toggleText.innerText = 'Ocultar Menú';
+                showToast("Menú lateral expandido", "👁️");
+            }
+        }
+
         // CAMBIAR ENLACE EN CALIENTE (Dina-QR)
         function applyCustomUrl() {
             const inputVal = document.getElementById('input-class-url').value.trim();
@@ -596,7 +627,7 @@
             const qrImg = document.getElementById('qr-image');
             qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodedUrl}&color=1E2022`;
             
-            showToast("QR de Proyección Actualizado", "🚀");
+            showToast("QR de Proyección Sincronizado", "🚀");
         }
 
         // CONTROLAR FALLA DEL QR API
@@ -614,11 +645,11 @@
             
             if (role === 'teacher') {
                 btnTeacher.className = "py-2 text-[11px] font-black rounded-lg transition-all duration-200 bg-ucacue-red text-white shadow-md";
-                btnStudent.className = "py-2 text-[11px] font-black rounded-lg transition-all duration-200 text-gray-400 hover:text-white";
+                btnStudent.className = "py-2 text-[11px] font-black rounded-lg transition-all duration-200 text-slate-500 hover:text-slate-800";
                 document.getElementById('role-badge').innerText = "Rol: Profesor (Proyección)";
             } else {
                 btnStudent.className = "py-2 text-[11px] font-black rounded-lg transition-all duration-200 bg-ucacue-red text-white shadow-md";
-                btnTeacher.className = "py-2 text-[11px] font-black rounded-lg transition-all duration-200 text-gray-400 hover:text-white";
+                btnTeacher.className = "py-2 text-[11px] font-black rounded-lg transition-all duration-200 text-slate-500 hover:text-slate-800";
                 document.getElementById('role-badge').innerText = "Rol: Estudiante (Dispositivo)";
             }
 
@@ -630,17 +661,17 @@
         function setResource(resource) {
             activeResource = resource;
             
-            // Cambiar diseño activo de botones del Sidebar
+            // Cambiar diseño activo de botones del Sidebar (Modo Claro)
             const navR1 = document.getElementById('nav-r1');
             const navR2 = document.getElementById('nav-r2');
 
             if (resource === 'r1') {
-                navR1.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 bg-ucacue-grayMedium border-l-4 border-ucacue-gold text-white";
-                navR2.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 hover:bg-ucacue-grayMedium/50 border-l-4 border-transparent text-gray-400 hover:text-white";
+                navR1.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 bg-slate-50 border-l-4 border-ucacue-red text-ucacue-red border border-slate-200 shadow-sm font-black";
+                navR2.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 hover:bg-slate-50 border-l-4 border-transparent text-slate-500 hover:text-slate-800 border border-transparent";
                 document.getElementById('header-title').innerText = "Recurso 1: Sondeo Diagnóstico y Nube de Conceptos";
             } else {
-                navR2.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 bg-ucacue-grayMedium border-l-4 border-ucacue-gold text-white";
-                navR1.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 hover:bg-ucacue-grayMedium/50 border-l-4 border-transparent text-gray-400 hover:text-white";
+                navR2.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 bg-slate-50 border-l-4 border-ucacue-red text-ucacue-red border border-slate-200 shadow-sm font-black";
+                navR1.className = "w-full p-3.5 rounded-2xl text-left transition-all duration-150 flex items-start gap-3 hover:bg-slate-50 border-l-4 border-transparent text-slate-500 hover:text-slate-800 border border-transparent";
                 document.getElementById('header-title').innerText = "Recurso 2: Tarjetas de Apoyo y Refuerzo Cognitivo";
             }
 
@@ -691,7 +722,7 @@
             else syncPollData.votesB++;
 
             syncPollData.totalVotes++;
-            addFeedEvent("Estudiante", `Votó por Postura ${value}`);
+            addFeedEvent("Estudiante", `Votó por la Postura ${value}`);
             updateTeacherScreen();
             showToast("Voto procesado y enviado con éxito", "🗳️");
         }
@@ -740,10 +771,10 @@
             const percentA = total > 0 ? Math.round((syncPollData.votesA / total) * 100) : 0;
             const percentB = total > 0 ? Math.round((syncPollData.votesB / total) * 100) : 0;
 
-            document.getElementById('bar-a-label').innerText = `${percentA}% (${syncPollData.votesA} votos)`;
+            document.getElementById('bar-a-label').innerText = `${percentA}% (${syncPollData.votesA} Gasto Social)`;
             document.getElementById('bar-a-fill').style.width = `${percentA}%`;
 
-            document.getElementById('bar-b-label').innerText = `${percentB}% (${syncPollData.votesB} votos)`;
+            document.getElementById('bar-b-label').innerText = `${percentB}% (${syncPollData.votesB} Deuda Externa)`;
             document.getElementById('bar-b-fill').style.width = `${percentB}%`;
 
             document.getElementById('p-voters-count').innerText = `Alumnos: ${total}`;
